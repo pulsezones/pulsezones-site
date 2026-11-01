@@ -1,6 +1,6 @@
 :root{--bg:#0d0a17;--surface:#151022;--surface-2:#1c142b;--ink:#f7f3ff;--muted:#b9adc9;--violet:#ad82f4;--violet-2:#7a4ac5;--mint:#9fe5bd;--line:rgba(255,255,255,.12);--paper:#f3eef7;--paper-ink:#251c30;--shell:min(1180px,calc(100% - 48px));font-synthesis:none}
 h1,h2,h3,.formula{overflow-wrap:anywhere;hyphens:auto}
-.privacy-notice{position:fixed;z-index:200;left:20px;bottom:20px;max-width:520px;padding:18px 20px;background:#21192f;color:var(--ink);border:1px solid #ffffff30;border-radius:18px;box-shadow:0 12px 40px #0006;font-size:13px;line-height:1.5}
+.privacy-notice{position:fixed;z-index:200;right:20px;bottom:20px;width:420px;max-width:calc(100vw - 40px);padding:18px 20px;background:#21192f;color:var(--ink);border:1px solid #ffffff30;border-radius:18px;box-shadow:0 12px 40px #0006;font-size:13px;line-height:1.5}
 .privacy-notice[hidden]{display:none}
 .privacy-notice p{margin:0 0 12px}
 .privacy-notice-actions{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -15,7 +15,7 @@ h1,h2,h3,.formula{overflow-wrap:anywhere;hyphens:auto}
 .privacy-page .reading-article{max-width:none}
 .website-privacy-link{padding-block:0 25px;font-size:13px}
 .website-privacy-link a{color:var(--muted);text-underline-offset:3px}
-@media(max-width:600px){.privacy-notice{left:12px;right:12px;bottom:12px;max-width:none;padding:16px;font-size:12px}.privacy-notice-actions{gap:12px}.privacy-notice button{max-width:52%;white-space:normal}}
+@media(max-width:600px){.privacy-notice{left:12px;right:12px;bottom:12px;width:auto;max-width:none;padding:16px;font-size:12px}.privacy-notice-actions{gap:12px}.privacy-notice button{max-width:52%;white-space:normal}}
 .language-switch{position:relative;flex-shrink:0;border:1px solid var(--line);border-radius:999px}
 .language-switch summary{display:flex;align-items:center;gap:9px;padding:9px 13px;cursor:pointer;list-style:none;font-size:13px;color:var(--ink);white-space:nowrap;border-radius:999px}
 .language-switch summary::-webkit-details-marker{display:none}

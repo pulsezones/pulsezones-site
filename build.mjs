@@ -1,6 +1,7 @@
 import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 
 const root=fileURLToPath(new URL('.',import.meta.url));
 const out=resolve(root,process.env.OUTPUT_DIR||'dist');
@@ -15,9 +16,13 @@ const privacyTranslations=JSON.parse(await readFile(join(root,'source/privacy-lo
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const absolute=path=>new URL(path,base).href;
 const languageScript=(auto=false)=>`<script src="${auto?'':'../'}assets/language-preference.js" data-language-selector data-supported-languages="${languages.map(l=>l.code).join(',')}"${auto?' data-auto-language="true"':''} defer></script>`;
+const stylesheet=await readFile(join(root,'assets/styles.css'));
+const stylesheetName=`styles.${createHash('sha256').update(stylesheet).digest('hex').slice(0,12)}.css`;
+const versionStyles=html=>html.replaceAll('assets/styles.css',`assets/${stylesheetName}`);
 await mkdir(out,{recursive:true});
 await cp(join(root,'assets'),join(out,'assets'),{recursive:true});
 await cp(join(root,'public'),out,{recursive:true});
+await writeFile(join(out,'assets',stylesheetName),stylesheet);
 const alternateTags=base?languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/')}">`).join('\n')+`\n<link rel="alternate" hreflang="x-default" href="${base}">`:'';
 
 for(const lang of languages){
@@ -52,16 +57,16 @@ for(const lang of languages){
   html=html.replace('</footer>',`<div class="shell website-privacy-link"><a href="privacy.html">${esc(privacy.title)}</a></div></footer>`);
   html=html.replace('</body>',`<aside class="privacy-notice" data-privacy-notice aria-label="${esc(privacy.title)}" hidden><p>${esc(privacy.notice)}</p><div class="privacy-notice-actions"><a href="privacy.html">${esc(privacy.readMore)}</a><button type="button">${esc(privacy.ok)}</button></div></aside><script src="../assets/privacy-notice.js" defer></script>\n</body>`);
   await mkdir(join(out,lang.code),{recursive:true});
-  await writeFile(join(out,lang.code,'index.html'),html);
+  await writeFile(join(out,lang.code,'index.html'),versionStyles(html));
   const privacyLinks=languages.map(l=>`<a href="../${l.code}/privacy.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}" data-language="${l.code}"${l.code===lang.code?' aria-current="page"':''}>${esc(l.name)}</a>`).join('');
   const privacyMetadata=base?`<link rel="canonical" href="${absolute(lang.code+'/privacy.html')}">\n${languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/privacy.html')}">`).join('\n')}\n<link rel="alternate" hreflang="x-default" href="${absolute('en/privacy.html')}">`:'';
   const privacyFields={...Object.fromEntries(Object.entries(privacy).map(([k,v])=>[k,esc(v)])),language:lang.hreflang||lang.code,locale:lang.locale,languageName:esc(lang.name),languageLabel:esc(t.t301),globe,caret,languageLinks:privacyLinks,languageScript:languageScript(),metadata:privacyMetadata};
-  await writeFile(join(out,lang.code,'privacy.html'),privacyTemplate.replace(/\{\{(\w+)\}\}/g,(_,key)=>{if(privacyFields[key]===undefined)throw Error(`Missing privacy template field: ${key}`);return privacyFields[key];}));
+  await writeFile(join(out,lang.code,'privacy.html'),versionStyles(privacyTemplate.replace(/\{\{(\w+)\}\}/g,(_,key)=>{if(privacyFields[key]===undefined)throw Error(`Missing privacy template field: ${key}`);return privacyFields[key];})));
 }
 
 const chooser=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PulseZones — Choose your language / Выберите язык</title><meta name="description" content="PulseZones: free Android app for chest strap heart rate monitors. Choose English or Russian."><link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/pulsezones-icon.png">${base?`<link rel="canonical" href="${base}">${alternateTags}`:''}</head><body><main class="language-home"><img src="assets/pulsezones-icon.png" alt="PulseZones" width="80" height="80"><h1>PulseZones</h1><p>Choose your language<br><span lang="ru">Выберите язык</span></p><nav aria-label="Choose your language">${languages.map(l=>`<a class="button ${l.code==='en'?'primary':'ghost'}" href="${l.code}/index.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}">${esc(l.name)}</a>`).join('')}</nav></main></body></html>`;
 const chooserWithPreferences=languages.reduce((html,lang)=>html.replace(`href="${lang.code}/index.html"`,`data-language="${lang.code}" href="${lang.code}/index.html"`),chooser);
-await writeFile(join(out,'index.html'),chooserWithPreferences.replace('</head>',languageScript(true)+'</head>').replace('Choose English or Russian.','Available in ten languages.').replace('</main>','<p><a href="en/privacy.html">Website privacy</a></p></main>'));
+await writeFile(join(out,'index.html'),versionStyles(chooserWithPreferences.replace('</head>',languageScript(true)+'</head>').replace('Choose English or Russian.','Available in ten languages.').replace('</main>','<p><a href="en/privacy.html">Website privacy</a></p></main>')));
 await writeFile(join(out,'.nojekyll'),'');
 const urls=['',...languages.flatMap(l=>[l.code+'/',l.code+'/privacy.html'])];
 if(base){
