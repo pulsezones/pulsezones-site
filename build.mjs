@@ -14,6 +14,7 @@ const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceA
 const absolute=path=>new URL(path,base).href;
 await mkdir(out,{recursive:true});
 await cp(join(root,'assets'),join(out,'assets'),{recursive:true});
+await cp(join(root,'public'),out,{recursive:true});
 const alternateTags=base?languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/')}">`).join('\n')+`\n<link rel="alternate" hreflang="x-default" href="${base}">`:'';
 
 for(const lang of languages){
