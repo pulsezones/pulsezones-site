@@ -36,17 +36,32 @@ for(const lang of languages){
     if(/[А-Яа-яЁё]/.test(visible))errors.push('en: Russian text remaining');
   }
   for(const other of languages)if(!html.includes(`data-language="${other.code}"`))errors.push(`${lang.code}: missing switch ${other.code}`);
+  if(!html.includes('href="privacy.html"')||!html.includes('data-privacy-notice'))errors.push(`${lang.code}: privacy notice or footer link missing`);
+  const privacyPath=join(out,lang.code,'privacy.html');
+  const privacyHtml=await readFile(privacyPath,'utf8');
+  if(privacyHtml.includes('{{')||!privacyHtml.includes(`<html lang="${lang.hreflang||lang.code}"`))errors.push(`${lang.code}: incomplete privacy page`);
+  if((privacyHtml.match(/<h1\b/g)||[]).length!==1)errors.push(`${lang.code}: privacy H1 count`);
+  if(privacyHtml.includes('data-auto-language="true"'))errors.push(`${lang.code}: privacy page must not auto-redirect`);
+  for(const m of privacyHtml.matchAll(/(?:href|src)="([^"]+)"/g)){
+    if(/^(https?:|mailto:)/.test(m[1]))continue;
+    try{await access(resolve(dirname(privacyPath),m[1]));}catch{errors.push(`${lang.code}: missing privacy link ${m[1]}`);}
+  }
   if(process.env.SITE_URL){
     const base=process.env.SITE_URL.replace(/\/?$/,'/');
     if(!html.includes(`rel="canonical" href="${base}${lang.code}/"`))errors.push(`${lang.code}: canonical`);
     for(const other of languages)if(!html.includes(`hreflang="${other.hreflang||other.code}" href="${base}${other.code}/"`))errors.push(`${lang.code}: hreflang ${other.code}`);
     if(!html.includes(`hreflang="x-default" href="${base}"`))errors.push(`${lang.code}: x-default`);
     if(!html.includes(`property="og:image" content="${base}assets/og-image.png"`))errors.push(`${lang.code}: Open Graph image URL`);
+    if(!privacyHtml.includes(`rel="canonical" href="${base}${lang.code}/privacy.html"`))errors.push(`${lang.code}: privacy canonical`);
+    for(const other of languages)if(!privacyHtml.includes(`hreflang="${other.hreflang||other.code}" href="${base}${other.code}/privacy.html"`))errors.push(`${lang.code}: privacy hreflang ${other.code}`);
   }
 }
 if(process.env.SITE_URL){
   const sitemap=await readFile(join(out,'sitemap.xml'),'utf8');
-  for(const lang of languages)if(!sitemap.includes(`/${lang.code}/</loc>`))errors.push(`sitemap missing ${lang.code}`);
+  for(const lang of languages){
+    if(!sitemap.includes(`/${lang.code}/</loc>`))errors.push(`sitemap missing ${lang.code}`);
+    if(!sitemap.includes(`/${lang.code}/privacy.html</loc>`))errors.push(`sitemap missing privacy ${lang.code}`);
+  }
 }
 if(errors.length)throw Error(errors.join('\n'));
 console.log('PASS: translations, language links, local assets, anchors, JSON-LD'+(process.env.SITE_URL?', canonical, hreflang and sitemap':''));

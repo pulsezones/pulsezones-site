@@ -10,6 +10,8 @@ let base='';
 if(supplied){const parsed=new URL(supplied);if(parsed.protocol!=='https:')throw Error('SITE_URL must use HTTPS');base=parsed.href.replace(/\/?$/,'/');}
 const template=await readFile(join(root,'source/template.html'),'utf8');
 const scrollBootstrap=await readFile(join(root,'source/scroll-bootstrap.js'),'utf8');
+const privacyTemplate=await readFile(join(root,'source/privacy-template.html'),'utf8');
+const privacyTranslations=JSON.parse(await readFile(join(root,'source/privacy-locales.json'),'utf8'));
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const absolute=path=>new URL(path,base).href;
 const languageScript=(auto=false)=>`<script src="${auto?'':'../'}assets/language-preference.js" data-language-selector data-supported-languages="${languages.map(l=>l.code).join(',')}"${auto?' data-auto-language="true"':''} defer></script>`;
@@ -19,6 +21,8 @@ await cp(join(root,'public'),out,{recursive:true});
 const alternateTags=base?languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/')}">`).join('\n')+`\n<link rel="alternate" hreflang="x-default" href="${base}">`:'';
 
 for(const lang of languages){
+  const privacy=privacyTranslations[lang.code];
+  for(const key of Object.keys(privacyTranslations.en))if(typeof privacy?.[key]!=='string'||!privacy[key].trim())throw Error(`Missing privacy translation ${lang.code}: ${key}`);
   const t=JSON.parse(await readFile(join(root,'locales',lang.code+'.json'),'utf8'));
   const ru=JSON.parse(await readFile(join(root,'locales/ru.json'),'utf8'));
   for(const key of Object.keys(ru))if(typeof t[key]!=='string'||!t[key].trim())throw Error(`Missing ${lang.code}: ${key}`);
@@ -45,15 +49,21 @@ for(const lang of languages){
   const metadata=(base?`<link rel="canonical" href="${absolute(lang.code+'/')}">\n${alternateTags}\n<meta property="og:url" content="${absolute(lang.code+'/')}">\n<meta property="og:image" content="${absolute('assets/og-image.png')}">\n`:'')+`<script type="application/ld+json">${JSON.stringify(app).replaceAll('<','\\u003c')}</script>`;
   html=html.replace('</head>',metadata+'\n'+languageScript()+'\n</head>');
   html=html.replace('<head>',`<head><style>html[data-scroll-restore]{visibility:hidden;scroll-behavior:auto!important}</style><script>${scrollBootstrap}</script>`);
+  html=html.replace('</footer>',`<div class="shell website-privacy-link"><a href="privacy.html">${esc(privacy.title)}</a></div></footer>`);
+  html=html.replace('</body>',`<aside class="privacy-notice" data-privacy-notice aria-label="${esc(privacy.title)}" hidden><p>${esc(privacy.notice)}</p><div class="privacy-notice-actions"><a href="privacy.html">${esc(privacy.readMore)}</a><button type="button">${esc(privacy.ok)}</button></div></aside><script src="../assets/privacy-notice.js" defer></script>\n</body>`);
   await mkdir(join(out,lang.code),{recursive:true});
   await writeFile(join(out,lang.code,'index.html'),html);
+  const privacyLinks=languages.map(l=>`<a href="../${l.code}/privacy.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}" data-language="${l.code}"${l.code===lang.code?' aria-current="page"':''}>${esc(l.name)}</a>`).join('');
+  const privacyMetadata=base?`<link rel="canonical" href="${absolute(lang.code+'/privacy.html')}">\n${languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/privacy.html')}">`).join('\n')}\n<link rel="alternate" hreflang="x-default" href="${absolute('en/privacy.html')}">`:'';
+  const privacyFields={...Object.fromEntries(Object.entries(privacy).map(([k,v])=>[k,esc(v)])),language:lang.hreflang||lang.code,locale:lang.locale,languageName:esc(lang.name),languageLabel:esc(t.t301),globe,caret,languageLinks:privacyLinks,languageScript:languageScript(),metadata:privacyMetadata};
+  await writeFile(join(out,lang.code,'privacy.html'),privacyTemplate.replace(/\{\{(\w+)\}\}/g,(_,key)=>{if(privacyFields[key]===undefined)throw Error(`Missing privacy template field: ${key}`);return privacyFields[key];}));
 }
 
 const chooser=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PulseZones — Choose your language / Выберите язык</title><meta name="description" content="PulseZones: free Android app for chest strap heart rate monitors. Choose English or Russian."><link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/pulsezones-icon.png">${base?`<link rel="canonical" href="${base}">${alternateTags}`:''}</head><body><main class="language-home"><img src="assets/pulsezones-icon.png" alt="PulseZones" width="80" height="80"><h1>PulseZones</h1><p>Choose your language<br><span lang="ru">Выберите язык</span></p><nav aria-label="Choose your language">${languages.map(l=>`<a class="button ${l.code==='en'?'primary':'ghost'}" href="${l.code}/index.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}">${esc(l.name)}</a>`).join('')}</nav></main></body></html>`;
 const chooserWithPreferences=languages.reduce((html,lang)=>html.replace(`href="${lang.code}/index.html"`,`data-language="${lang.code}" href="${lang.code}/index.html"`),chooser);
-await writeFile(join(out,'index.html'),chooserWithPreferences.replace('</head>',languageScript(true)+'</head>').replace('Choose English or Russian.','Available in ten languages.'));
+await writeFile(join(out,'index.html'),chooserWithPreferences.replace('</head>',languageScript(true)+'</head>').replace('Choose English or Russian.','Available in ten languages.').replace('</main>','<p><a href="en/privacy.html">Website privacy</a></p></main>'));
 await writeFile(join(out,'.nojekyll'),'');
-const urls=['',...languages.map(l=>l.code+'/')];
+const urls=['',...languages.flatMap(l=>[l.code+'/',l.code+'/privacy.html'])];
 if(base){
   await writeFile(join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(p=>`<url><loc>${esc(absolute(p))}</loc></url>`).join('')}</urlset>\n`);
   await writeFile(join(out,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${absolute('sitemap.xml')}\n`);

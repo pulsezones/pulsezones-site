@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{language}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>{{title}} — PulseZones</title>
+  <meta name="description" content="{{summary}}">
+  <meta property="og:locale" content="{{locale}}">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="icon" href="../assets/pulsezones-icon.png">
+  {{metadata}}
+  {{languageScript}}
+</head>
+<body>
+  <header class="site-header"><div class="shell nav">
+    <a class="brand" href="index.html"><img src="../assets/pulsezones-icon.png" width="42" height="42" alt=""><span>PulseZones</span></a>
+    <details class="language-switch"><summary aria-label="{{languageLabel}}">{{globe}}<span>{{languageName}}</span>{{caret}}</summary><div class="language-options">{{languageLinks}}</div></details>
+  </div></header>
+  <main class="shell privacy-page">
+    <a href="index.html">← {{back}}</a>
+    <article class="reading-article">
+      <h1>{{title}}</h1><p class="muted">{{updated}}</p><p>{{summary}}</p>
+      <h2>{{localTitle}}</h2><p>{{localText}}</p>
+      <h2>{{hostingTitle}}</h2><p>{{hostingText}}</p><p><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub</a></p>
+      <h2>{{emailTitle}}</h2><p>{{emailText}}</p><p><a href="mailto:pulsezones@proton.me">pulsezones@proton.me</a></p>
+      <h2>{{appTitle}}</h2><p>{{appText}}</p><p><a href="https://pulsezones.github.io/pulsezones-legal/privacy.html" target="_blank" rel="noopener">{{appLink}}</a></p>
+      <h2>{{externalTitle}}</h2><p>{{externalText}}</p>
+    </article>
+    <p><a href="index.html">← {{back}}</a></p>
+  </main>
+</body>
+</html>
