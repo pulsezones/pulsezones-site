@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ka" data-zone-label="ზონა">
+<head><style>html[data-scroll-restore]{visibility:hidden;scroll-behavior:auto!important}</style><script>if (new URLSearchParams(location.search).has('view')) {
+  document.documentElement.setAttribute('data-scroll-restore', '');
+  history.scrollRestoration = 'manual';
+  window.scrollRestoreFallback = setTimeout(() => {
+    document.documentElement.removeAttribute('data-scroll-restore');
+    history.scrollRestoration = 'auto';
+  }, 1800);
+}
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0a17">
+  <title>PulseZones — Bluetooth პულსომეტრის აპი Android-ისთვის</title>
+  <meta name="description" content="უფასო Bluetooth პულსომეტრის აპი Android-ისთვის. შეაერთეთ სენსორი, მიიღეთ ზონის გაფრთხილებები, ჩაიწერეთ GPS და გააზიარეთ სტატისტიკა. რეკლამისა და რეგისტრაციის გარეშე.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ka_GE">
+  <meta property="og:site_name" content="PulseZones">
+  <meta property="og:title" content="PulseZones — უფასო პულსომეტრი Android-ისთვის">
+  <meta property="og:description" content="პულსი რეალურ დროში, ზონები და GPS ვარჯიშები Bluetooth სენსორით. უფასოდ, რეკლამისა და ანგარიშის გარეშე.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/pulsezones-icon.png">
+  <link rel="stylesheet" href="../assets/styles.css">
+  
+  
+<link rel="canonical" href="https://pulsezones.github.io/pulsezones-site/ka/">
+<link rel="alternate" hreflang="ru" href="https://pulsezones.github.io/pulsezones-site/ru/">
+<link rel="alternate" hreflang="en" href="https://pulsezones.github.io/pulsezones-site/en/">
+<link rel="alternate" hreflang="es" href="https://pulsezones.github.io/pulsezones-site/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://pulsezones.github.io/pulsezones-site/pt-br/">
+<link rel="alternate" hreflang="de" href="https://pulsezones.github.io/pulsezones-site/de/">
+<link rel="alternate" hreflang="fr" href="https://pulsezones.github.io/pulsezones-site/fr/">
+<link rel="alternate" hreflang="it" href="https://pulsezones.github.io/pulsezones-site/it/">
+<link rel="alternate" hreflang="pl" href="https://pulsezones.github.io/pulsezones-site/pl/">
+<link rel="alternate" hreflang="tr" href="https://pulsezones.github.io/pulsezones-site/tr/">
+<link rel="alternate" hreflang="ka" href="https://pulsezones.github.io/pulsezones-site/ka/">
+<link rel="alternate" hreflang="x-default" href="https://pulsezones.github.io/pulsezones-site/">
+<meta property="og:url" content="https://pulsezones.github.io/pulsezones-site/ka/">
+<meta property="og:image" content="https://pulsezones.github.io/pulsezones-site/assets/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"PulseZones","operatingSystem":"Android","applicationCategory":"HealthApplication","description":"უფასო Bluetooth პულსომეტრის აპი Android-ისთვის. შეაერთეთ სენსორი, მიიღეთ ზონის გაფრთხილებები, ჩაიწერეთ GPS და გააზიარეთ სტატისტიკა. რეკლამისა და რეგისტრაციის გარეშე.","isAccessibleForFree":true,"offers":{"@type":"Offer","price":0,"priceCurrency":"USD"},"downloadUrl":"https://play.google.com/store/apps/details?id=com.pulsezones.pulselock","inLanguage":["ru","en","es","pt-BR","de","fr","it","pl","tr","ka"],"featureList":["პულსი რეალურ დროში","GPS სირბილისა და ველოსიპედისთვის","ჩაწერა გამორთული ეკრანით","კვირისა და თვის სტატისტიკა"],"url":"https://pulsezones.github.io/pulsezones-site/ka/","image":"https://pulsezones.github.io/pulsezones-site/assets/pulsezones-icon.png"}</script>
+</head>
+<body>
+  <a class="skip" href="#content">შინაარსზე გადასვლა</a>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="PulseZones-ის მთავარი გვერდი">
+        <img src="../assets/pulsezones-icon.png" alt="" width="42" height="42">
+        <span>PulseZones</span>
+      </a>
+      <nav aria-label="მთავარი მენიუ">
+        <a href="#features">ფუნქციები</a>
+        <a href="#sensors">სენსორები</a>
+        <a href="#zones">პულსის ზონები</a>
+        <a href="#faq">კითხვები</a>
+      </nav>
+      <details class="language-switch"><summary aria-label="ენის არჩევა: ქართული"><svg class="language-globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg><span>ქართული</span><svg class="language-caret" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary><div class="language-options" role="group" aria-label="ენის არჩევა"><a href="../ru/index.html" lang="ru" hreflang="ru" data-language="ru">Русский</a><a href="../en/index.html" lang="en" hreflang="en" data-language="en">English</a><a href="../es/index.html" lang="es" hreflang="es" data-language="es">Español</a><a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR" data-language="pt-br">Português (Brasil)</a><a href="../de/index.html" lang="de" hreflang="de" data-language="de">Deutsch</a><a href="../fr/index.html" lang="fr" hreflang="fr" data-language="fr">Français</a><a href="../it/index.html" lang="it" hreflang="it" data-language="it">Italiano</a><a href="../pl/index.html" lang="pl" hreflang="pl" data-language="pl">Polski</a><a href="../tr/index.html" lang="tr" hreflang="tr" data-language="tr">Türkçe</a><a href="../ka/index.html" lang="ka" hreflang="ka" data-language="ka" aria-current="page">ქართული</a></div></details>
+      <a class="small-cta" href="https://play.google.com/store/apps/details?id=com.pulsezones.pulselock" target="_blank" rel="noopener">Google Play</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="aurora aurora-one"></div><div class="aurora aurora-two"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>უფასო · Android · რეკლამის გარეშე</p>
+          <h1>პულსის მონიტორინგის აპი <em>Android-ისთვის</em></h1>
+          <p class="hero-lead">შეაერთეთ Bluetooth გულმკერდის სენსორი და აქციეთ ტელეფონი ვარჯიშის ეკრანად. ნახეთ პულსი, მიიღეთ ზონის შეტყობინებები და ჩაიწერეთ GPS მარშრუტი. უფასოდ, რეკლამისა და ანგარიშის გარეშე.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://play.google.com/store/apps/details?id=com.pulsezones.pulselock" target="_blank" rel="noopener">ჩამოტვირთეთ Google Play-დან <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+            <a class="button ghost" href="#features">გაეცანით ფუნქციებს</a>
+          </div>
+          <ul class="trust-list" aria-label="უპირატესობები">
+            <li>რეგისტრაციის გარეშე</li><li>გამოწერის გარეშე</li><li>მონაცემები ტელეფონშია</li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-label="PulseZones-ის ეკრანები">
+          <div class="hero-phone-pair">
+            <div class="phone-mockup hero-main-phone" role="img" aria-label="მთავარი ეკრანი დაკავშირებული სენსორით">
+<img class="phone-render" src="../assets/phone-home-640.webp" srcset="../assets/phone-home-320.webp 320w, ../assets/phone-home-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 245px, (max-width: 980px) 270px, 300px" alt="" width="640" height="1380" decoding="async">
+</div>
+            <div class="phone-mockup hero-stats-phone" role="img" aria-label="თვის სტატისტიკა">
+<img class="phone-render" src="../assets/phone-statistics-640.webp" srcset="../assets/phone-statistics-320.webp 320w, ../assets/phone-statistics-640.webp 640w" sizes="(max-width: 480px) 180px, (max-width: 760px) 210px, 260px" alt="" width="640" height="1380" decoding="async">
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="shell proof-row">
+        <div class="sensor-summary"><span class="sensor-intro">აპი შემდეგი სენსორებისთვის:</span> <span class="sensor-models"><strong>GEOID HS500</strong> · <strong>Magene H303</strong> · <strong>Magene H603</strong> · <strong>Polar H10</strong> და სხვა პულსის სენსორებისთვის.</span><p class="app-alternative"><a href="#polar-beat-alternative">Polar Beat-ისა და სხვა პოპულარული აპების ალტერნატივა.</a></p></div>
+      </div>
+    </section>
+
+    <section class="manifesto section-pad" id="features">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="kicker">პულსი რეალურ დროში. სასარგებლო მონაცემები.</p><h2>აკონტროლეთ დატვირთვა.<br>გაიგეთ მეტი ყოველ ვარჯიშზე.</h2></div>
+          <p>დამოუკიდებელი დეველოპერის აპი მორბენლებისთვის, ველოსიპედისტებისა და პულსის სენსორის მომხმარებლებისთვის. საჭირო მაჩვენებლები რეკლამის გარეშე.</p>
+        </div>
+        <div class="feature-story">
+          <article class="story-card card-chart">
+            <div class="story-copy"><span class="index">01</span><h3>პულსი რეალურ დროში</h3><p>ნახეთ პულსი, მიმდინარე ზონა, გრაფიკი და დრო თითოეულ ზონაში. ხმა და ვიბრაცია დატვირთვის თვალყურის დევნებაში გეხმარებათ ეკრანის გარეშე.</p></div>
+            <div class="phone-stage"><div class="phone-mockup feature-phone" role="img" aria-label="პულსის გრაფიკი და ხუთი ზონა">
+<img class="phone-render" src="../assets/phone-heart-640.webp" srcset="../assets/phone-heart-320.webp 320w, ../assets/phone-heart-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 235px, 270px" alt="" width="640" height="1380" decoding="async" loading="lazy">
+</div></div>
+          </article>
+          <article class="story-card card-map">
+            <div class="story-copy"><span class="index">02</span><h3>GPS სირბილისა და ველოსიპედისთვის</h3><p>ჩაიწერეთ მარშრუტი, ტემპი, სიჩქარე, დრო და მანძილი სირბილის, ველოსიპედისა და ლაშქრობისას.</p></div>
+            <div class="phone-stage"><div class="phone-mockup feature-phone" role="img" aria-label="GPS მარშრუტი რუკაზე">
+<img class="phone-render" src="../assets/phone-map-640.webp" srcset="../assets/phone-map-320.webp 320w, ../assets/phone-map-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 235px, 270px" alt="" width="640" height="1380" decoding="async" loading="lazy">
+</div></div>
+          </article>
+          <article class="story-card card-lock">
+            <div class="story-copy"><span class="index">03</span><h3>ჩაწერა გამორთული ეკრანით</h3><p>ვარჯიში ფონურ რეჟიმში იწერება. პულსი, ტემპი და მანძილი დაბლოკილ ეკრანზე შეტყობინებაში ჩანს.</p></div>
+            <div class="phone-stage"><div class="phone-mockup feature-phone" role="img" aria-label="შეტყობინება Android-ის დაბლოკილ ეკრანზე">
+<img class="phone-render" src="../assets/phone-lock-640.webp" srcset="../assets/phone-lock-320.webp 320w, ../assets/phone-lock-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 235px, 270px" alt="" width="640" height="1380" decoding="async" loading="lazy">
+</div></div>
+          </article>
+          <article class="story-card card-stats">
+            <div class="story-copy"><span class="index">04</span><h3>კვირისა და თვის სტატისტიკა</h3><p>ვარჯიშების რაოდენობა, მანძილი, ჯამური დრო, საშუალო პულსი და ზონებში გატარებული დრო საერთო სურათს გაჩვენებთ.</p></div>
+            <div class="phone-stage"><div class="phone-mockup feature-phone" role="img" aria-label="თვის სტატისტიკა სადემონსტრაციო მონაცემებით">
+<img class="phone-render" src="../assets/phone-statistics-640.webp" srcset="../assets/phone-statistics-320.webp 320w, ../assets/phone-statistics-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 235px, 270px" alt="" width="640" height="1380" decoding="async" loading="lazy"><span class="phone-caption">დემო</span>
+</div></div>
+          </article>
+          <article class="story-card card-settings">
+            <div class="story-copy"><span class="index">05</span><h3>პულსის ინდივიდუალური ზონები</h3><p>მიუთითეთ დაბადების თარიღი, მაქსიმალური პულსი და აირჩიეთ სტანდარტული ან კარვონენის მეთოდი. ხუთი ზონა თქვენი მონაცემებით ითვლება.</p><a class="article-next" href="#zone-methods">მეთოდების შედარება →</a></div>
+            <div class="phone-stage"><div class="phone-mockup feature-phone" role="img" aria-label="პულსის პარამეტრები: მაქსიმუმი, მეთოდი და ხუთი ზონა">
+<img class="phone-render" src="../assets/phone-hr-settings-640.webp" srcset="../assets/phone-hr-settings-320.webp 320w, ../assets/phone-hr-settings-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 235px, 270px" alt="" width="640" height="1380" decoding="async" loading="lazy">
+</div></div>
+          </article>
+          <article class="story-card card-results">
+            <div class="story-copy"><span class="index">06</span><h3>ვარჯიშის შედეგები და პულსის ანალიზი</h3><p>ნახეთ მანძილი, დრო, საშუალო და მაქსიმალური პულსი. მარშრუტი, გრაფიკი და ზონები დატვირთვის ცვლილებას აჩვენებს.</p></div>
+            <div class="phone-stage"><div class="phone-mockup feature-phone" role="img" aria-label="შედეგები პულსით, ზონებით, მარშრუტითა და გრაფიკით">
+<img class="phone-render" src="../assets/phone-results-640.webp" srcset="../assets/phone-results-320.webp 320w, ../assets/phone-results-640.webp 640w" sizes="(max-width: 480px) 210px, (max-width: 760px) 235px, 270px" alt="" width="640" height="1380" decoding="async" loading="lazy">
+</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="capabilities section-pad" id="all-features" aria-labelledby="all-features-title">
+      <div class="shell">
+        <div class="section-head"><div><p class="kicker">PulseZones-ის ყველა ფუნქცია</p><h2 id="all-features-title">Bluetooth პულსომეტრი,<br>ზონის გაფრთხილებები და ანგარიშები</h2></div><p>შეაერთეთ სენსორი, აკონტროლეთ ვარჯიში და გააზიარეთ პროგრესი PulseZones-ით.</p></div>
+        <div class="capability-grid">
+          <article><h3>რომელი Bluetooth გულმკერდის სენსორებია თავსებადი?</h3><p>თავსებადი Bluetooth Low Energy სენსორი პირდაპირ აპში შეაერთეთ. დეველოპერმა გამოსცადა GEOID HS500, Magene H303 და Magene H603. სხვა მოდელებს სტანდარტული Bluetooth Heart Rate Service სჭირდება.</p></article>
+          <article><h3>ვნახავ სენსორის პულსს Android-ზე რეალურ დროში?</h3><p>ნახეთ პულსი, ზონა და გრაფიკი. მთავარ ეკრანზე ჩანს დაკავშირებული სენსორი და მისი ბატარეაც.</p></article>
+          <article><h3>როგორ ვნახო დრო პულსის ზონებში?</h3><p>ხუთი ფერადი ზონა დატვირთვას ასახავს. ვარჯიშისას ჩანს მიმდინარე ზონა და დაგროვილი დრო თითოეულში.</p></article>
+          <article><h3>არის პულსის ზონის გაფრთხილებები?</h3><p>დიახ. მიიღეთ გაფრთხილება არჩეული ზონიდან გასვლისას ან ყველა ზონის ცვლილებისას. გამოიყენეთ ხმა და ვიბრაცია.</p></article>
+          <article><h3>შეიძლება კარვონენის პულსის რეზერვის გამოყენება?</h3><p>აირჩიეთ კარვონენი და შეიყვანეთ მოსვენების პულსი. სტანდარტული მეთოდი მაქსიმუმის პროცენტს იყენებს. მაქსიმუმი მიუთითეთ ან ასაკით შეაფასეთ.</p><a href="#zone-methods">გაეცანით გამოთვლებს →</a></article>
+          <article><h3>შეიძლება GPS, ტემპისა და სიჩქარის ჩაწერა?</h3><p>ჩართეთ GPS მარშრუტის, მანძილის, დროის, სიჩქარისა და ტემპისთვის. აირჩიეთ კილომეტრი ან მილი და გადაერთეთ რუკასა და გრაფიკს შორის.</p></article>
+          <article><h3>მუშაობს ჩაწერა ფონურ რეჟიმში?</h3><p>აქტიური ვარჯიშის ჩაწერა გრძელდება. პულსი, ტემპი და მანძილი სისტემურ შეტყობინებაშია, დაბლოკილ ეკრანზეც.</p></article>
+          <article><h3>სად ვნახო ისტორია და გრაფიკები?</h3><p>გახსენით შენახული ვარჯიში: დრო, მანძილი, საშუალო და მაქსიმალური პულსი, გრაფიკი, ზონები და მარშრუტი ერთ ანგარიშშია.</p></article>
+          <article><h3>როგორ გავაზიარო ვარჯიშის შედეგები?</h3><p>გახსენით შენახული ვარჯიში და გაზიარებით გაუგზავნეთ ანგარიში მწვრთნელს ან მეგობრებს.</p></article>
+          <article><h3>არის კვირისა და თვის სტატისტიკა?</h3><p>აირჩიეთ პერიოდი და აქტივობა: ნახეთ რაოდენობა, ჯამური მანძილი და დრო, საშუალო პულსი, დღიური მანძილი და ზონები.</p></article>
+          <article><h3>როგორ გავაზიარო კვირის ან თვის სტატისტიკა?</h3><p>სტატისტიკაში აირჩიეთ კვირა ან თვე და გააზიარეთ მოცულობისა და ინტენსივობის განაწილების ანგარიში.</p></article>
+          <article><h3>რომელი აპია სირბილის, ველოსიპედისა და ძალოვანი ვარჯიშისთვის?</h3><p>არის სირბილი, ველოსიპედი, ლაშქრობა, ძალოვანი, კარდიო, სპორტი, ძილი და დემო. ნახეთ სტატისტიკა აქტივობის მიხედვით.</p></article>
+          <article><h3>უფასო და რეკლამის გარეშეა PulseZones?</h3><p>დიახ. რეკლამის, გამოწერისა და სავალდებულო რეგისტრაციის გარეშე. საჭიროა თავსებადი Bluetooth სენსორი: აპი მის მონაცემებს კითხულობს და არა კამერით ზომავს პულსს.</p></article>
+          <article><h3>შეიძლება ინტერნეტის გარეშე ჩაწერა?</h3><p>ძირითადი ფუნქციები ოფლაინ მუშაობს. პროფილი, ისტორია და მარშრუტები ტელეფონში ინახება.</p></article>
+          <article><h3>რომელი ენებია მხარდაჭერილი?</h3><p>ათი ენა: ინგლისური, რუსული, ესპანური, ბრაზილიური პორტუგალიური, გერმანული, ფრანგული, იტალიური, პოლონური, თურქული და ქართული.</p></article>
+          <article><h3>როგორ გავხადო მონაცემები უფრო წაკითხვადი?</h3><p>შეცვალეთ ტექსტის ზომა აპში.</p></article>
+          <article><h3>საიდან მოდის პულსის მონაცემები?</h3><p>PulseZones დაკავშირებული სენსორის მაჩვენებლებს აჩვენებს. არ იგონებს და არ ცვლის მათ გამოთვლილი შეფასებებით. სიზუსტე სენსორზე, კანთან კონტაქტსა და კავშირზეა დამოკიდებული.</p></article>
+          <article><h3>როგორ მუშავდება GPS მარშრუტი?</h3><p>კოორდინატებს ტელეფონის მდებარეობის სისტემა იძლევა. საეჭვო ნახტომები გლუვდება და ტრეკი შენახვამდე მუშავდება. ეს ამცირებს შეცდომებს, მაგრამ კარგ GPS სიგნალს ვერ ცვლის.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="polar-alternative section-pad" id="polar-beat-alternative" aria-labelledby="polar-alternative-title">
+      <div class="shell">
+        <div class="section-head"><div><p class="kicker">სხვა აპს ეძებთ თქვენი სენსორისთვის?</p><h2 id="polar-alternative-title">უფასო ალტერნატივა<br>Polar Beat-ისთვის Android-ზე</h2></div><p>სცადეთ PulseZones: ზონების მოქნილი გამოთვლა, გაფრთხილების ორი რეჟიმი და გასაზიარებელი სტატისტიკა.</p></div>
+        <div class="reading-article alternative-intro"><p>ძირითადი ამოცანები მსგავსია: პულსი, ვარჯიშისა და GPS-ის ჩაწერა, შედეგები. PulseZones ყურადღებას დატვირთვის პარამეტრებს, ხილულ მაჩვენებლებსა და ანგარიშებს აქცევს.</p></div>
+        <div class="capability-grid">
+          <article><h3>ზონების მოქნილი პარამეტრები</h3><p>აირჩიეთ სტანდარტული ან კარვონენი, მიუთითეთ მაქსიმუმი და კარვონენისთვის მოსვენების პულსი. ასე განსაზღვრავთ ხუთი ზონის გამოთვლას.</p><a href="#zone-methods">რომელი მეთოდი ავირჩიო? →</a></article>
+          <article><h3>გაფრთხილების ორი რეჟიმი</h3><p>მიიღეთ გაფრთხილება კონკრეტული ზონიდან გასვლისას ან ყველა ზონის ცვლილებაზე, რათა დატვირთვას მიჰყვეთ.</p></article>
+          <article><h3>სენსორის მდგომარეობა ერთი შეხედვით</h3><p>კავშირი და ბატარეა დაკავშირებისთანავე მთავარ ეკრანზე ჩანს.</p></article>
+          <article><h3>მაჩვენებლები რუკასა და გრაფიკზე ხილულია</h3><p>ხედის შეცვლისას ზედა პანელი რჩება: პულსი, მანძილი, დრო და ტემპი ან სიჩქარე.</p></article>
+          <article><h3>გასაზიარებელი სტატისტიკა</h3><p>ცალკეული ვარჯიშების გარდა ნახეთ კვირისა და თვის მონაცემები. აირჩიეთ პერიოდი და აქტივობა და გააზიარეთ მოცულობა და ზონები.</p></article>
+          <article><h3>ინტერფეისი ათ ენაზე</h3><p>ინგლისური, რუსული, ესპანური, ბრაზილიური პორტუგალიური, გერმანული, ფრანგული, იტალიური, პოლონური, თურქული ან ქართული.</p></article>
+          <article><h3>დაიწყეთ ანგარიშის გარეშე</h3><p>უფასოდ, რეკლამისა და გამოწერის გარეშე. ანგარიში არ გჭირდებათ; მონაცემები ტელეფონში რჩება.</p></article>
+          <article><h3>გამოცდილია სხვადასხვა ბრენდი</h3><p>გამოცდილია GEOID HS500, Magene H303 და Magene H603. სხვა მოდელები შეიძლება Bluetooth Heart Rate Service-ით მუშაობდეს. ხანგრძლივ სესიამდე შეამოწმეთ თქვენი სენსორი.</p><a href="#sensors">სენსორის დაკავშირება →</a></article>
+        </div>
+        <div class="reading-article alternative-intro"><p class="article-sources">Polar Beat-თან საერთო ფუნქციები გადამოწმდა წყაროში: <a href="https://support.polar.com/en/support/polar_beat_features" target="_blank" rel="noopener">Polar-ის ოფიციალური აღწერა</a>. აქ აღწერილია PulseZones. Polar Beat და Polar Flow განსხვავდება და შეიძლება შეიცვალოს. PulseZones დამოუკიდებელია და Polar-თან დაკავშირებული არ არის.</p></div>
+      </div>
+    </section>
+
+    <section class="activities section-pad">
+      <div class="shell activities-grid">
+        <div><p class="kicker">სირბილი, ველოსიპედი, ძალოვანი და სხვა</p><h2>აირჩიეთ ვარჯიშის ტიპი</h2></div>
+        <div class="activity-cloud" aria-label="ვარჯიშის ტიპები">
+          <span>სირბილი</span><span>ველოსიპედი</span><span>ლაშქრობა</span><span>ძალოვანი</span><span>კარდიო</span><span>სპორტი</span><span>დემო</span><span>ძილი</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sensors section-pad" id="sensors">
+      <div class="shell">
+        <div class="section-head light-head"><div><p class="kicker">თავსებადობა</p><h2>შეაერთეთ Bluetooth პულსომეტრი Android-თან</h2></div><p>PulseZones მუშაობს BLE სენსორებთან, რომლებიც სტანდარტულ Bluetooth Heart Rate Service-ს იყენებს.</p></div>
+        <div class="steps">
+          <article><b>1</b><h3>გაიკეთეთ და ჩართეთ სენსორი</h3><p>დაასველეთ ელექტროდები და მოირგეთ გულმკერდის ქამარი. უმეტესობა ავტომატურად ირთვება.</p></article>
+          <article><b>2</b><h3>გახსენით PulseZones</h3><p>დაუშვით Bluetooth და ახლომდებარე მოწყობილობები, შემდეგ აირჩიეთ სენსორი აპში.</p></article>
+          <article><b>3</b><h3>დაიწყეთ ვარჯიში</h3><p>აირჩიეთ აქტივობა და დაწყება. ბოლოს გათიშეთ სენსორი ან მოიხსენით ქამარი.</p></article>
+        </div>
+        <div class="compat-note"><strong>გამოცდილი მოდელები:</strong> GEOID HS500, Magene H303 და Magene H603. სხვა მოდელები შეიძლება სტანდარტული BLE Heart Rate Service-ით მუშაობდეს.</div>
+      </div>
+    </section>
+
+    <section class="permissions section-pad" id="permissions" aria-labelledby="permissions-title">
+      <div class="shell">
+        <div class="section-head"><div><p class="kicker">პირველ ვარჯიშამდე</p><h2 id="permissions-title">Android-ის ნებართვები<br>Bluetooth-ისა და ფონური ჩაწერისთვის</h2></div><p>PulseZones-ის პარამეტრებში შეამოწმეთ ნებართვები და ფონური მუშაობა, მათ შორის გამორთული ეკრანით ჩაწერისთვის.</p></div>
+        <div class="capability-grid">
+          <article><h3>ახლომდებარე მოწყობილობები: სენსორი</h3><p>დაუშვით ძიება და დაკავშირება მონაცემების მისაღებად. Bluetooth ჩართული უნდა იყოს. ნებართვის სახელი და მოთხოვნა Android-ზეა დამოკიდებული.</p></article>
+          <article><h3>ზუსტი მდებარეობა: მარშრუტი</h3><p>დაუშვით ზუსტი მდებარეობა გამოყენებისას და ჩართეთ ლოკაცია მარშრუტის, მანძილის, სიჩქარისა და ტემპისთვის. მოთხოვნა GPS-ის ჩართვისას ჩნდება. პულსი ამის გარეშეც იწერება.</p></article>
+          <article><h3>შეტყობინებები: ვარჯიში ფონურ რეჟიმში</h3><p>დაუშვით შეტყობინებები პულსის, GPS-ით ხელმისაწვდომი ტემპის ან სიჩქარისა და სენსორის კავშირის სანახავად, როცა აპი ფონშია ან ეკრანი გამორთულია.</p></article>
+          <article><h3>ბატარეის შეუზღუდავი გამოყენება</h3><p>ენერგიის დაზოგვამ შეიძლება კავშირი ან ჩაწერა შეწყვიტოს. ბატარეის პარამეტრებში PulseZones-ისთვის აირჩიეთ შეუზღუდავი მუშაობა ან ოპტიმიზაციის გამორთვა.</p></article>
+          <article><h3>დაბლოკილი ეკრანი: მაჩვენებლები</h3><p>დაუშვით შეტყობინებები დაბლოკილ ეკრანზე. შეამოწმეთ პულსის, კავშირისა და მარშრუტის კატეგორიები, თუ ცალ-ცალკეა. ხილვადობა კონფიდენციალურობის პარამეტრებზეცაა დამოკიდებული.</p></article>
+          <article><h3>ავტომატური გაშვება: თუ ხელმისაწვდომია</h3><p>ზოგი მწარმოებელი დამატებით შეზღუდვებს აწესებს. დაუშვით ავტომატური გაშვება, თუ ასეთი პარამეტრი არსებობს. მისი არარსებობა პრობლემას არ ნიშნავს.</p></article>
+        </div>
+        <div class="reading-article permissions-notes">
+          <h3>რატომ რჩება ბატარეის ოპტიმიზაციის გაფრთხილება?</h3>
+          <p>ფონური მუშაობისა და ოპტიმიზაციის გამონაკლისი შეიძლება სხვადასხვა პარამეტრი იყოს. აპი Android-ის მიერ დადასტურებულ გამონაკლისს ამოწმებს, ამიტომ გაფრთხილება შეიძლება დარჩეს.</p>
+          <p>მოძებნეთ ბატარეის ოპტიმიზაცია, აჩვენეთ ყველა აპი და აირჩიეთ PulseZones. შეამოწმეთ გადამრთველის აზრი: აკრძალვა შეიძლება ოპტიმიზაციას ეხებოდეს და არა მუშაობას.</p>
+          <aside class="article-note"><strong>პარამეტრები ტელეფონებს შორის განსხვავდება.</strong> სახელები და მენიუები მოდელზე, მწარმოებელსა და სისტემაზეა დამოკიდებული. ნახეთ მწარმოებლის ინსტრუქცია ან მხარდაჭერა. ინტერნეტში მოძებნეთ ზუსტი მოდელი, Android-ის ვერსია და ფონური მუშაობა, ბატარეის ოპტიმიზაცია ან დაბლოკილი ეკრანის შეტყობინებები.</aside>
+          <h3>როგორ შევამოწმო გამორთული ეკრანით ჩაწერა?</h3>
+          <p>შეაერთეთ სენსორი, დაიწყეთ მოკლე ვარჯიში და ეკრანი რამდენიმე წუთით გამორთეთ. შემდეგ შეამოწმეთ პულსისა და ჩართული GPS-ის ჩაწერა.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="zones section-pad" id="zones">
+      <div class="shell zones-grid">
+        <div class="zone-copy">
+          <p class="kicker">რისთვისაა პულსის ზონებით ვარჯიში?</p>
+          <h2>პულსის ზონები: დატვირთვა მიზნის მიხედვით</h2>
+          <p>პულსი ორგანიზმის ძალისხმევას ასახავს. ზონები განასხვავებს აღდგენას, მსუბუქ აერობულ დატვირთვას, ტემპსა და მაღალ ინტენსივობას.</p>
+          <p>გეხმარებათ არ დაიწყოთ სწრაფად, შეინარჩუნოთ დატვირთვა და შეადაროთ ვარჯიშები. საზღვრები მიახლოებითია და მეთოდზეა დამოკიდებული.</p>
+          <div class="method-links"><a href="#why-zones">ზონების დანიშნულება</a><a href="#zone-methods">მეთოდების შედარება</a></div>
+        </div>
+        <div class="zone-stack" aria-label="პულსის ხუთი ზონა">
+          <div class="z5"><span>ზონა 5</span><strong>90–100%</strong><small>მაქსიმალური ინტენსივობა</small></div>
+          <div class="z4"><span>ზონა 4</span><strong>80–89%</strong><small>მაღალი ინტენსივობა</small></div>
+          <div class="z3"><span>ზონა 3</span><strong>70–79%</strong><small>ზომიერად მძიმე დატვირთვა</small></div>
+          <div class="z2"><span>ზონა 2</span><strong>60–69%</strong><small>აერობული ვარჯიში</small></div>
+          <div class="z1"><span>ზონა 1</span><strong>50–59%</strong><small>მსუბუქი დატვირთვა</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="training-article section-pad" id="why-zones" aria-labelledby="why-zones-title">
+      <article class="shell reading-article">
+        <p class="kicker">ივარჯიშეთ მიზანმიმართულად</p>
+        <h2 id="why-zones-title">ზონები მსუბუქი სირბილისა და ინტერვალებისთვის</h2>
+        <p class="article-lead">აღმართმა ან სხვა მორბენლის დაწევამ მსუბუქი სირბილი შეუმჩნევლად შეიძლება გაართულოს. ზონები ცვლილების დანახვასა და გეგმის დაცვაში გეხმარებათ.</p>
+        <p>ზონა პულსის დიაპაზონია. ხუთი ზონა მსუბუქიდან ინტენსიურამდე აჩვენებს არა მხოლოდ დროს, არამედ დატვირთვასაც.</p>
+        <h3>მსუბუქი სირბილი მსუბუქად შეინარჩუნეთ</h3>
+        <p>მოცულობის დაგროვებისას სიჩქარე ყოველთვის მთავარი არაა. მნიშვნელოვანია შესაფერისი ინტენსივობა და ენერგია მომდევნო ვარჯიშებისთვის.</p>
+        <p>პულსი შეუმჩნეველი აჩქარების თავიდან აცილებაში გეხმარებათ. სიცხე, ხანგრძლივი სირბილი და აღმართი ერთსა და იმავე ტემპზე სხვადასხვა ძალისხმევას მოითხოვს. შენელება ზოგჯერ მიზნის შენარჩუნებაა.</p>
+        <p>დააკვირდით სუნთქვასაც: ზომიერ დატვირთვაზე ჩვეულებრივ წინადადებებით საუბარი შეიძლება. თუ საუბარი გიჭირთ, ინტენსივობა მაღალია.</p>
+        <h3>დატვირთვა და აღდგენა ინტერვალებში</h3>
+        <p>ინტენსიურ მონაკვეთებს მსუბუქი აღდგენა ენაცვლება. გრაფიკი სხეულის პასუხს აჩვენებს, ზონებში დრო კი განაწილების შეფასებაში გეხმარებათ.</p>
+        <aside class="article-note">პულსი დაგვიანებით რეაგირებს: მოკლე აჩქარების ბოლოს შეიძლება მოიმატოს და შენელების შემდეგაც მაღალი დარჩეს. გამოიყენეთ დრო, ტემპი და შეგრძნებაც. მხოლოდ ფერის მისაღწევად ნუ აჩქარდებით.</aside>
+        <h3>შეაფასეთ მთელი ვარჯიში</h3>
+        <p>40 წუთი შეიძლება მსუბუქი სირბილი, ტემპი ან ინტერვალები იყოს. ზონებში დრო განსხვავებას აჩვენებს.</p>
+        <p>მიჰყევით ზონასა და გრაფიკს, შემდეგ შეადარეთ გეგმა შედეგს: დარჩა სირბილი მსუბუქი? იყო აღდგენა ინტერვალებს შორის?</p>
+        <p>ზონები ორიენტირია და არა კარგი ან ცუდი შეფასება. დატვირთვა მიზანსა და თქვენს მდგომარეობას უნდა შეესაბამებოდეს.</p>
+        <p class="article-sources">წყაროები: <a href="https://www.cdc.gov/physical-activity-basics/adding-adults/what-counts.html" target="_blank" rel="noopener">CDC: ინტენსივობა და საუბრის ტესტი</a>; <a href="https://us.suunto.com/blogs/blog/polarized-training" target="_blank" rel="noopener">Suunto: პულსი ინტერვალებისას</a>.</p>
+        <a class="article-next" href="#zone-methods">გამოთვლის მეთოდის არჩევა →</a>
+      </article>
+    </section>
+
+    <section class="methods section-pad" id="zone-methods" aria-labelledby="methods-title">
+      <div class="shell">
+        <div class="reading-article methods-intro"><p class="kicker">გამოთვლის ახსნა</p><h2 id="methods-title">პულსის ზონები: მაქსიმუმის პროცენტი თუ კარვონენი?</h2><p class="article-lead">ორივე იყენებს მაქსიმუმს. კარვონენი მოსვენების პულსსაც ითვალისწინებს.</p></div>
+        <div class="method-card" id="standard">
+          <div><p class="kicker">მეთოდი 01</p><h2>სტანდარტული: მაქსიმუმის პროცენტი</h2></div>
+          <div><p>ხუთი ზონის ქვედა საზღვარია მაქსიმუმის 50%, 60%, 70%, 80% და 90%.</p><p class="formula">საზღვარი = მაქსიმალური პულსი × პროცენტი</p><p>მაგალითად, თუ მაქსიმუმია <strong>180 დარტყმა/წთ</strong> , 60%-ის ნიშნულია: <strong>180 × 0,60 = 108 დარტყმა/წთ</strong>.</p><p>გამოიყენეთ ცნობილი მაქსიმუმი ან ასაკით შეფასება. PulseZones იყენებს ფორმულას <strong>220 − ასაკი</strong>.</p><p>მარტივია, მაგრამ მოსვენებას არ ითვალისწინებს: ერთი მაქსიმუმის მქონე ადამიანებს ერთნაირი ზონები ექნებათ.</p></div>
+        </div>
+        <div class="method-card" id="karvonen">
+          <div><p class="kicker">მეთოდი 02</p><h2>კარვონენი: პულსის რეზერვი</h2></div>
+          <div><p>რეზერვი მაქსიმუმსა და მოსვენებას შორის სხვაობაა. კარვონენი მის პროცენტს მოსვენების პულსს უმატებს.</p><p class="formula">საზღვარი = მოსვენება + (მაქსიმუმი − მოსვენება) × პროცენტი</p><p>იგივე მაქსიმუმით — <strong>180 დარტყმა/წთ</strong> და მოსვენების პულსით — <strong>60 დარტყმა/წთ</strong>, 60%-ის ნიშნული იქნება: <strong>60 + (180 − 60) × 0,60 = 132 დარტყმა/წთ</strong>.</p><p>ეს 24-ით მეტია. მაქსიმუმის 60% და რეზერვის 60% სხვადასხვა სიდიდეა.</p></div>
+        </div>
+
+        <div class="reading-article method-choice">
+          <h3>რატომ იყენებს კარვონენი მოსვენების პულსს?</h3>
+          <p>გული მოსვენების დროსაც მუშაობს. ვარჯიშისას პულსი ამ ნიშნულიდან მაქსიმუმისკენ იზრდება. კარვონენი აფასებს ხელმისაწვდომი დიაპაზონის გამოყენებულ წილს.</p>
+          <aside class="article-note">სკალა იწყება მოსვენებიდან და არა ნულიდან. მოსვენება ქვედა საზღვარია, მაქსიმუმი — ზედა.</aside>
+          <h3>იგივე პულსი, რეზერვის სხვა წილი</h3>
+          <p>ორ ადამიანს ერთი მაქსიმუმი აქვს — <strong>180 დარტყმა/წთ</strong>. ერთის მოსვენების პულსია 50, მეორის 80. ვარჯიშისას ორივე 140-ს აღწევს.</p>
+          <div class="method-table-wrap"><table class="method-table"><caption>შედარება 140 დარტყმა/წთ-ზე</caption><thead><tr><th scope="col">მაჩვენებელი</th><th scope="col">პირველი ადამიანი</th><th scope="col">მეორე ადამიანი</th></tr></thead><tbody><tr><th scope="row">მაქსიმალური პულსი</th><td>180</td><td>180</td></tr><tr><th scope="row">მოსვენების პულსი</th><td>50</td><td>80</td></tr><tr><th scope="row">პულსის რეზერვი</th><td>130</td><td>100</td></tr><tr><th scope="row">რეზერვის წილი 140-ზე</th><td>≈ 69%</td><td>60%</td></tr><tr><th scope="row">მაქსიმუმის წილი 140-ზე</th><td>≈ 78%</td><td>≈ 78%</td></tr></tbody></table></div>
+          <p>სტანდარტული ორივეს დაახლოებით 78%-ს აძლევს. კარვონენი განსხვავებულ საწყისებს ითვალისწინებს: <strong>(140 − 50) ÷ 130 ≈ 69%</strong> და <strong>(140 − 80) ÷ 100 = 60%</strong>. ეს გამოთვლის მაგალითია და არ ამტკიცებს, რომ ერთისთვის დატვირთვა აუცილებლად უფრო მძიმეა.</p>
+          <h3>უფრო ინდივიდუალური, მაგრამ არა ყოველთვის ზუსტი</h3>
+          <p>მოსვენების გათვალისწინება დატვირთვას ხელმისაწვდომ დიაპაზონს უკავშირებს. პულსის რეზერვის პროცენტი ჩვეულებრივ უკეთ შეესაბამება ჟანგბადის მოხმარების რეზერვის პროცენტს, ვიდრე ყველასთვის ერთი მაქსიმუმის პროცენტი.</p>
+          <p>მოსვენება მომზადებაზე, ინდივიდუალურ თვისებებსა და მდგომარეობაზეა დამოკიდებული. დაბალი მაჩვენებელი შეიძლება გამძლეობის გაუმჯობესებას ახლდეს, მაგრამ მარტო ჯანმრთელობას ან ფორმას არ ზომავს.</p>
+          <h3>რომელი მეთოდი ავირჩიოთ?</h3>
+          <p>სტანდარტული მარტივი დასაწყისია. კარვონენი უფრო ინდივიდუალურია, თუ ჩვეულებრივი მოსვენების პულსი იცით. გამოიყენეთ რამდენიმე მშვიდი დილის გაზომვა ყავამდე და აქტივობამდე.</p>
+          <p>ორივეს სანდო მონაცემები სჭირდება. თუ მაქსიმუმი 220 − ასაკით ფასდება, გაურკვევლობა კარვონენშიც რჩება. არცერთი იძლევა ფიზიოლოგიურ ზღვრებთან ზუსტ შესაბამისობას.</p>
+          <aside class="article-note">გეგმაში შეამოწმეთ მეთოდი და საზღვრები დარტყმებში წუთში. ზონა 2 აპებს შორის შეიძლება განსხვავდებოდეს; ფერი და ნომერი საკმარისი არაა.</aside>
+          <p class="article-sources">წყაროები: <a href="https://support.polar.com/e_manuals/coach/polar-coach-user-manual-english.pdf" target="_blank" rel="noopener">Polar: პულსის რეზერვი და მეთოდები</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9586849/" target="_blank" rel="noopener">ამერიკის პრევენციული კარდიოლოგიის საზოგადოება: ინტენსივობა</a>.</p>
+        </div>
+
+        <div class="calculator" aria-labelledby="calculator-title">
+          <div class="calc-intro"><p class="kicker">პულსის ზონების უფასო კალკულატორი</p><h2 id="calculator-title">გამოთვალეთ მაქსიმუმით ან კარვონენით</h2><p>გამოთვლა PulseZones-ის ლოგიკას იყენებს. შედეგი ორიენტირად გამოიყენეთ.</p></div>
+          <form class="calc-panel" id="zone-calculator">
+            <fieldset><legend>გამოთვლის მეთოდი</legend><label class="radio"><input type="radio" name="method" value="standard" checked><span>სტანდარტული</span></label><label class="radio"><input type="radio" name="method" value="karvonen"><span>კარვონენი</span></label></fieldset>
+            <div class="field-row"><label>ასაკი წლებში<input id="age" type="number" min="10" max="100" value="35" inputmode="numeric"></label><label id="resting-field" hidden>მოსვენების პულსი<input id="resting" type="number" min="35" max="120" value="60" inputmode="numeric" disabled></label></div>
+            <p class="calc-max">სავარაუდო მაქსიმალური პულსი: <strong id="max-heart-rate">185</strong> დარტყმა/წთ</p>
+            <div class="result-list" id="zone-results" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy section-pad">
+      <div class="shell privacy-grid">
+        <div><p class="kicker">თქვენი მონაცემების შესახებ</p><h2>ანგარიშის გარეშე.<br>ვარჯიშები ტელეფონში რჩება.</h2></div>
+        <div class="privacy-points"><article><h3>ლოკალური შენახვა</h3><p>პროფილი, ისტორია და მარშრუტები სმარტფონშია.</p></article><article><h3>ძირითადი ფუნქციები ოფლაინ</h3><p>სენსორით ვარჯიშს ინტერნეტი არ სჭირდება. GPS-იც შეიძლება მობილური მონაცემების გარეშე მუშაობდეს.</p></article><article><h3>ტექნიკური დიაგნოსტიკა</h3><p>შეცდომების ანონიმური ანგარიშები გამოსწორებაში გვეხმარება. ისინი პულსსა და ვარჯიშის მონაცემებს არ შეიცავს.</p></article></div>
+      </div>
+    </section>
+
+    <section class="faq section-pad" id="faq">
+      <div class="shell faq-grid">
+        <div><p class="kicker">ხშირი კითხვები</p><h2>პირველ ვარჯიშამდე</h2><p class="muted">პასუხი ვერ იპოვეთ? მისწერეთ დეველოპერს. თქვენი გამოცდილება აპის განვითარებას ეხმარება.</p></div>
+        <div class="accordion">
+          <details><summary>რომელი სენსორებია თავსებადი?</summary><p>BLE სენსორები სტანდარტული Heart Rate Service-ით. გამოცდილია GEOID HS500, Magene H303 და Magene H603.</p></details>
+          <details><summary>მუშაობს გამორთული ეკრანით?</summary><p>დიახ. აქტიური ჩაწერა გრძელდება. ზოგ ტელეფონს ავტომატური გაშვება და შეუზღუდავი ბატარეა სჭირდება.</p></details>
+          <details><summary>საჭიროა Android-ის პარამეტრებში დაწყვილება?</summary><p>ჩვეულებრივ არა. ჩართეთ Bluetooth და შეაერთეთ სენსორი PulseZones-ში.</p></details>
+          <details><summary>არის რეკლამა ან გამოწერა?</summary><p>არა. უფასოა, რეკლამისა და გამოწერის გარეშე.</p></details>
+          <details><summary>გამოდგება სამედიცინო მონიტორად?</summary><p>არა. განკუთვნილია ვარჯიშისა და ინფორმაციისთვის. სამედიცინო მოწყობილობა არაა და ექიმის რჩევას არ ცვლის.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-section section-pad" id="from-author" aria-labelledby="author-title">
+      <div class="shell reading-article">
+        <p class="kicker">დეველოპერისგან</p>
+        <h2 id="author-title">თქვენი ინტერესი აპს ავითარებს</h2>
+        <p>PulseZones ამჟამად უფასოა. დამოუკიდებლად ვქმნი და ყოველი ინსტალაცია მის სარგებლიანობას მაჩვენებს, რაც გაგრძელების მოტივაციას მაძლევს.</p>
+        <p>ახალი ფუნქციების იდეები მაქვს. მათი დამატება და დრო ძირითადად ინსტალაციებსა და გამოხმაურებაზე იქნება დამოკიდებული.</p>
+        <p>თუ მოგწონთ, ურჩიეთ მეგობრებს. თუ რამე აკლია ან იდეა გაქვთ, მომწერეთ. სიამოვნებით მოვისმენ სურვილებსა და შეფასებებს.</p>
+        <div class="hero-actions"><a class="button primary" href="mailto:pulsezones@proton.me?subject=%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AE%E1%83%9B%E1%83%90%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%20PulseZones-%E1%83%96%E1%83%94">ელფოსტის გაგზავნა</a><a class="button ghost" href="https://www.threads.com/@pulsezones" target="_blank" rel="noopener">განხილვა Threads-ზე</a></div>
+        <p class="article-sources">ელფოსტა: <a href="mailto:pulsezones@proton.me?subject=%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AE%E1%83%9B%E1%83%90%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%20PulseZones-%E1%83%96%E1%83%94">pulsezones@proton.me</a> · Threads: <a href="https://www.threads.com/@pulsezones" target="_blank" rel="noopener">@pulsezones</a></p>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="shell final-card">
+        <img src="../assets/pulsezones-icon.png" alt="PulseZones-ის ლოგო" width="96" height="96">
+        <p class="kicker">PulseZones Android-ისთვის</p>
+        <h2>ყოველი დარტყმა. ყურადღების ცენტრში.</h2>
+        <p>შეაერთეთ Bluetooth სენსორი და დაიწყეთ ვარჯიში. უფასოდ, რეკლამისა და რეგისტრაციის გარეშე.</p>
+        <a class="button primary" href="https://play.google.com/store/apps/details?id=com.pulsezones.pulselock" target="_blank" rel="noopener">Google Play-ის გახსნა <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div><a class="brand footer-brand" href="#top"><img src="../assets/pulsezones-icon.png" alt="" width="38" height="38"><span>PulseZones</span></a><p>პულსი. ზონები. ვარჯიშები.</p></div>
+      <div><strong>გაეცანით</strong><a href="#features">ფუნქციები</a><a href="#all-features">ყველა ფუნქცია</a><a href="#sensors">სენსორები</a><a href="#permissions">ნებართვები და ფონური მუშაობა</a><a href="#standard">სტანდარტული მეთოდი</a><a href="#karvonen">კარვონენი: პულსის რეზერვი</a></div>
+      <div><strong>კონტაქტი</strong><a href="mailto:pulsezones@proton.me?subject=%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AE%E1%83%9B%E1%83%90%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%20PulseZones-%E1%83%96%E1%83%94">pulsezones@proton.me</a><a href="https://www.threads.com/@pulsezones" target="_blank" rel="noopener">@pulsezones Threads-ზე</a></div>
+    </div>
+    <div class="shell legal">PulseZones სპორტისა და ინფორმაციისთვისაა. არაა სამედიცინო მოწყობილობა დიაგნოზის, მკურნალობის ან საგანგებო მონიტორინგისთვის.</div>
+  </footer>
+  <script src="../assets/script.js" defer></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 :root{--bg:#0d0a17;--surface:#151022;--surface-2:#1c142b;--ink:#f7f3ff;--muted:#b9adc9;--violet:#ad82f4;--violet-2:#7a4ac5;--mint:#9fe5bd;--line:rgba(255,255,255,.12);--paper:#f3eef7;--paper-ink:#251c30;--shell:min(1180px,calc(100% - 48px));font-synthesis:none}
+h1,h2,h3,.formula{overflow-wrap:anywhere;hyphens:auto}
 .language-switch{position:relative;flex-shrink:0;border:1px solid var(--line);border-radius:999px}
 .language-switch summary{display:flex;align-items:center;gap:9px;padding:9px 13px;cursor:pointer;list-style:none;font-size:13px;color:var(--ink);white-space:nowrap;border-radius:999px}
 .language-switch summary::-webkit-details-marker{display:none}

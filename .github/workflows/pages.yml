@@ -21,7 +21,7 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build both languages
+      - name: Build all languages
         run: node build.mjs
         env:
           SITE_URL: ${{ steps.pages.outputs.base_url }}

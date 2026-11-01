@@ -25,11 +25,11 @@ for(const lang of languages){
   html=html.replace('<html lang="ru">',`<html lang="${lang.hreflang||lang.code}" data-zone-label="${esc(t.t161.replace(/\s*1$/,''))}">`).replace('content="ru_RU"',`content="${lang.locale}"`);
   html=html.replaceAll('href="/styles.css"','href="/assets/styles.css"').replaceAll('src="/script.js"','src="/assets/script.js"').replaceAll('/assets/','../assets/');
   const links=languages.map(l=>`<a href="../${l.code}/index.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}" data-language="${l.code}"${l.code===lang.code?' aria-current="page"':''}>${esc(l.name)}</a>`).join('');
-  const languageLabel=lang.code==='ru'?'Выбрать язык':'Choose language';
+  const languageLabel=t.t301;
   const globe='<svg class="language-globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>';
   const caret='<svg class="language-caret" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>';
   html=html.replace('<a class="small-cta"',`<details class="language-switch"><summary aria-label="${languageLabel}: ${esc(lang.name)}">${globe}<span>${esc(lang.name)}</span>${caret}</summary><div class="language-options" role="group" aria-label="${languageLabel}">${links}</div></details>\n      <a class="small-cta"`);
-  if(lang.code==='en')html=html.replace(/(mailto:pulsezones@proton.me)\?[^"\s]+/g,'$1?subject=PulseZones%20feedback');
+  html=html.replace(/(mailto:pulsezones@proton.me)\?[^"\s]+/g,(_,email)=>`${email}?subject=${encodeURIComponent(t.t302)}`);
   if(lang.code==='ru'){
     html=html.replace(/<a\b[^>]*href="https:\/\/(?:www\.)?threads\.com\/[^"\s]*"[^>]*>[\s\S]*?<\/a>/g,'').replaceAll(' · Threads: ','');
   }

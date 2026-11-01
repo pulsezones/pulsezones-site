@@ -1,12 +1,12 @@
 [
   {"code":"ru","name":"Русский","locale":"ru_RU","enabled":true},
   {"code":"en","name":"English","locale":"en_US","enabled":true},
-  {"code":"es","name":"Español","locale":"es_ES","enabled":false},
-  {"code":"pt-br","name":"Português (Brasil)","locale":"pt_BR","hreflang":"pt-BR","enabled":false},
-  {"code":"de","name":"Deutsch","locale":"de_DE","enabled":false},
-  {"code":"fr","name":"Français","locale":"fr_FR","enabled":false},
-  {"code":"it","name":"Italiano","locale":"it_IT","enabled":false},
-  {"code":"pl","name":"Polski","locale":"pl_PL","enabled":false},
-  {"code":"tr","name":"Türkçe","locale":"tr_TR","enabled":false},
-  {"code":"ka","name":"ქართული","locale":"ka_GE","enabled":false}
+  {"code":"es","name":"Español","locale":"es_ES","enabled":true},
+  {"code":"pt-br","name":"Português (Brasil)","locale":"pt_BR","hreflang":"pt-BR","enabled":true},
+  {"code":"de","name":"Deutsch","locale":"de_DE","enabled":true},
+  {"code":"fr","name":"Français","locale":"fr_FR","enabled":true},
+  {"code":"it","name":"Italiano","locale":"it_IT","enabled":true},
+  {"code":"pl","name":"Polski","locale":"pl_PL","enabled":true},
+  {"code":"tr","name":"Türkçe","locale":"tr_TR","enabled":true},
+  {"code":"ka","name":"ქართული","locale":"ka_GE","enabled":true}
 ]

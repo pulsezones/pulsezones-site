@@ -5,12 +5,19 @@ const root=fileURLToPath(new URL('.',import.meta.url));
 const out=resolve(root,process.env.OUTPUT_DIR||'dist');
 const languages=JSON.parse(await readFile(join(root,'languages.json'),'utf8')).filter(l=>l.enabled);
 const errors=[];
+const reference=JSON.parse(await readFile(join(root,'locales/ru.json'),'utf8'));
 for(const lang of languages){
+  const translation=JSON.parse(await readFile(join(root,'locales',lang.code+'.json'),'utf8'));
+  if(Object.keys(translation).sort().join()!==Object.keys(reference).sort().join())errors.push(`${lang.code}: translation keys differ`);
+  for(const key of Object.keys(reference))if(typeof translation[key]!=='string'||!translation[key].trim())errors.push(`${lang.code}: missing translation ${key}`);
   const path=join(out,lang.code,'index.html');
   const html=await readFile(path,'utf8');
   if(html.includes('{{t'))errors.push(`${lang.code}: untranslated token`);
   if((html.match(/<h1\b/g)||[]).length!==1)errors.push(`${lang.code}: H1 count`);
   if(!html.includes(`<html lang="${lang.hreflang||lang.code}"`))errors.push(`${lang.code}: HTML language`);
+  if(!html.includes(`content="${lang.locale}"`))errors.push(`${lang.code}: Open Graph locale`);
+  if((html.match(/<meta property="og:image"/g)||[]).length!==Number(Boolean(process.env.SITE_URL)))errors.push(`${lang.code}: duplicate or unexpected Open Graph image`);
+  if(!html.includes(`<title>${translation.t001}</title>`))errors.push(`${lang.code}: localized title`);
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   if(new Set(ids).size!==ids.length)errors.push(`${lang.code}: duplicate IDs`);
   for(const m of html.matchAll(/(?:href|src)="([^"]+)"/g)){
@@ -34,6 +41,7 @@ for(const lang of languages){
     if(!html.includes(`rel="canonical" href="${base}${lang.code}/"`))errors.push(`${lang.code}: canonical`);
     for(const other of languages)if(!html.includes(`hreflang="${other.hreflang||other.code}" href="${base}${other.code}/"`))errors.push(`${lang.code}: hreflang ${other.code}`);
     if(!html.includes(`hreflang="x-default" href="${base}"`))errors.push(`${lang.code}: x-default`);
+    if(!html.includes(`property="og:image" content="${base}assets/og-image.png"`))errors.push(`${lang.code}: Open Graph image URL`);
   }
 }
 if(process.env.SITE_URL){
