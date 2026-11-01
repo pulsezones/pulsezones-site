@@ -2,6 +2,7 @@
 h1,h2,h3,.formula{overflow-wrap:anywhere;hyphens:auto}
 html[lang="ru"] .hero h1{hyphens:none;overflow-wrap:normal}
 html[lang="ru"] .hero h1 em{display:block}
+@media(max-width:760px){html[lang="ru"] #polar-alternative-title{hyphens:none;overflow-wrap:normal}}
 .privacy-notice{position:fixed;z-index:200;right:20px;bottom:20px;width:420px;max-width:calc(100vw - 40px);padding:18px 20px;background:#21192f;color:var(--ink);border:1px solid #ffffff30;border-radius:18px;box-shadow:0 12px 40px #0006;font-size:13px;line-height:1.5}
 .privacy-notice[hidden]{display:none}
 .privacy-notice p{margin:0 0 12px}
