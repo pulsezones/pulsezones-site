@@ -1,5 +1,7 @@
 :root{--bg:#0d0a17;--surface:#151022;--surface-2:#1c142b;--ink:#f7f3ff;--muted:#b9adc9;--violet:#ad82f4;--violet-2:#7a4ac5;--mint:#9fe5bd;--line:rgba(255,255,255,.12);--paper:#f3eef7;--paper-ink:#251c30;--shell:min(1180px,calc(100% - 48px));font-synthesis:none}
 h1,h2,h3,.formula{overflow-wrap:anywhere;hyphens:auto}
+html[lang="ru"] .hero h1{hyphens:none;overflow-wrap:normal}
+html[lang="ru"] .hero h1 em{display:block}
 .privacy-notice{position:fixed;z-index:200;right:20px;bottom:20px;width:420px;max-width:calc(100vw - 40px);padding:18px 20px;background:#21192f;color:var(--ink);border:1px solid #ffffff30;border-radius:18px;box-shadow:0 12px 40px #0006;font-size:13px;line-height:1.5}
 .privacy-notice[hidden]{display:none}
 .privacy-notice p{margin:0 0 12px}
