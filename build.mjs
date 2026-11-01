@@ -12,6 +12,7 @@ const template=await readFile(join(root,'source/template.html'),'utf8');
 const scrollBootstrap=await readFile(join(root,'source/scroll-bootstrap.js'),'utf8');
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const absolute=path=>new URL(path,base).href;
+const languageScript=(auto=false)=>`<script src="${auto?'':'../'}assets/language-preference.js" data-language-selector data-supported-languages="${languages.map(l=>l.code).join(',')}"${auto?' data-auto-language="true"':''} defer></script>`;
 await mkdir(out,{recursive:true});
 await cp(join(root,'assets'),join(out,'assets'),{recursive:true});
 await cp(join(root,'public'),out,{recursive:true});
@@ -42,14 +43,15 @@ for(const lang of languages){
   };
   if(base){app.url=absolute(lang.code+'/');app.image=absolute('assets/pulsezones-icon.png');}
   const metadata=(base?`<link rel="canonical" href="${absolute(lang.code+'/')}">\n${alternateTags}\n<meta property="og:url" content="${absolute(lang.code+'/')}">\n<meta property="og:image" content="${absolute('assets/og-image.png')}">\n`:'')+`<script type="application/ld+json">${JSON.stringify(app).replaceAll('<','\\u003c')}</script>`;
-  html=html.replace('</head>',metadata+'\n</head>');
+  html=html.replace('</head>',metadata+'\n'+languageScript()+'\n</head>');
   html=html.replace('<head>',`<head><style>html[data-scroll-restore]{visibility:hidden;scroll-behavior:auto!important}</style><script>${scrollBootstrap}</script>`);
   await mkdir(join(out,lang.code),{recursive:true});
   await writeFile(join(out,lang.code,'index.html'),html);
 }
 
 const chooser=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PulseZones — Choose your language / Выберите язык</title><meta name="description" content="PulseZones: free Android app for chest strap heart rate monitors. Choose English or Russian."><link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/pulsezones-icon.png">${base?`<link rel="canonical" href="${base}">${alternateTags}`:''}</head><body><main class="language-home"><img src="assets/pulsezones-icon.png" alt="PulseZones" width="80" height="80"><h1>PulseZones</h1><p>Choose your language<br><span lang="ru">Выберите язык</span></p><nav aria-label="Choose your language">${languages.map(l=>`<a class="button ${l.code==='en'?'primary':'ghost'}" href="${l.code}/index.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}">${esc(l.name)}</a>`).join('')}</nav></main></body></html>`;
-await writeFile(join(out,'index.html'),chooser);
+const chooserWithPreferences=languages.reduce((html,lang)=>html.replace(`href="${lang.code}/index.html"`,`data-language="${lang.code}" href="${lang.code}/index.html"`),chooser);
+await writeFile(join(out,'index.html'),chooserWithPreferences.replace('</head>',languageScript(true)+'</head>').replace('Choose English or Russian.','Available in ten languages.'));
 await writeFile(join(out,'.nojekyll'),'');
 const urls=['',...languages.map(l=>l.code+'/')];
 if(base){
