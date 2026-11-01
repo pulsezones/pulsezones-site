@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pulsezones.github.io/pulsezones-site/sitemap.xml
