@@ -50,14 +50,19 @@ for(const lang of languages){
     const base=process.env.SITE_URL.replace(/\/?$/,'/');
     if(!html.includes(`rel="canonical" href="${base}${lang.code}/"`))errors.push(`${lang.code}: canonical`);
     for(const other of languages)if(!html.includes(`hreflang="${other.hreflang||other.code}" href="${base}${other.code}/"`))errors.push(`${lang.code}: hreflang ${other.code}`);
-    if(!html.includes(`hreflang="x-default" href="${base}"`))errors.push(`${lang.code}: x-default`);
+    if(!html.includes(`hreflang="x-default" href="${base}en/"`))errors.push(`${lang.code}: x-default`);
     if(!html.includes(`property="og:image" content="${base}assets/og-image.png"`))errors.push(`${lang.code}: Open Graph image URL`);
     if(!privacyHtml.includes(`rel="canonical" href="${base}${lang.code}/privacy.html"`))errors.push(`${lang.code}: privacy canonical`);
     for(const other of languages)if(!privacyHtml.includes(`hreflang="${other.hreflang||other.code}" href="${base}${other.code}/privacy.html"`))errors.push(`${lang.code}: privacy hreflang ${other.code}`);
   }
 }
 if(process.env.SITE_URL){
+  const base=process.env.SITE_URL.replace(/\/?$/,'/');
+  const rootPage=await readFile(join(out,'index.html'),'utf8');
+  if(!rootPage.includes(`http-equiv="refresh" content="0; url=${base}en/"`))errors.push('project root: missing English redirect');
   const sitemap=await readFile(join(out,'sitemap.xml'),'utf8');
+  const textSitemap=(await readFile(join(out,'sitemap.txt'),'utf8')).trim().split(/\r?\n/);
+  if(sitemap.includes(`<loc>${base}</loc>`)||textSitemap.includes(base))errors.push('sitemap includes redirecting project root');
   for(const lang of languages){
     if(!sitemap.includes(`/${lang.code}/</loc>`))errors.push(`sitemap missing ${lang.code}`);
     if(!sitemap.includes(`/${lang.code}/privacy.html</loc>`))errors.push(`sitemap missing privacy ${lang.code}`);

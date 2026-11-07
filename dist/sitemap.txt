@@ -1,4 +1,3 @@
-https://pulsezones.github.io/pulsezones-site/
 https://pulsezones.github.io/pulsezones-site/en/
 https://pulsezones.github.io/pulsezones-site/en/privacy.html
 https://pulsezones.github.io/pulsezones-site/es/
