@@ -13,6 +13,11 @@ for(const lang of languages){
   const path=join(out,lang.code,'index.html');
   const html=await readFile(path,'utf8');
   if(html.includes('{{t'))errors.push(`${lang.code}: untranslated token`);
+  const mobileMenu=html.match(/<details class="mobile-navigation">([\s\S]*?)<\/details>/)?.[1];
+  if(!mobileMenu||!mobileMenu.includes(`<summary aria-label="${translation.t287}">`))errors.push(`${lang.code}: accessible mobile menu missing`);
+  for(const anchor of ['features','sensors','zones','faq']){
+    if(!mobileMenu?.includes(`href="#${anchor}"`))errors.push(`${lang.code}: mobile menu missing ${anchor}`);
+  }
   if((html.match(/<h1\b/g)||[]).length!==1)errors.push(`${lang.code}: H1 count`);
   if(!html.includes(`<html lang="${lang.hreflang||lang.code}"`))errors.push(`${lang.code}: HTML language`);
   if(!html.includes(`content="${lang.locale}"`))errors.push(`${lang.code}: Open Graph locale`);

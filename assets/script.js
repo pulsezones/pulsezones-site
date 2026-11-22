@@ -70,13 +70,20 @@ if (document.documentElement.hasAttribute('data-scroll-restore')) {
 }
 
 document.addEventListener('click', event => {
+  document.querySelectorAll('.mobile-navigation[open]').forEach(menu => {
+    if (!menu.contains(event.target)) menu.open = false;
+    else if (event.target.closest('nav a')) {
+      menu.open = false;
+      menu.querySelector('summary').focus({preventScroll: true});
+    }
+  });
   document.querySelectorAll('.language-switch[open]').forEach(menu => {
     if (!menu.contains(event.target)) menu.open = false;
   });
 });
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape') return;
-  document.querySelectorAll('.language-switch[open]').forEach(menu => {
+  document.querySelectorAll('.language-switch[open], .mobile-navigation[open]').forEach(menu => {
     menu.open = false;
     menu.querySelector('summary').focus();
   });
