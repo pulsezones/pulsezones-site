@@ -147,6 +147,18 @@ html[lang="ru"] .hero h1 em{display:block}
   .site-header .nav .mobile-navigation:not([open]) nav{display:none}
 }
 @media(max-width:480px){
-  .site-header .nav{gap:8px}
-  .mobile-navigation summary{width:36px}
+  .site-header .nav{width:calc(100% - 24px);gap:6px;flex-wrap:nowrap}
+  .mobile-navigation summary{width:32px;height:40px}
+  .site-header .brand{font-size:14px;gap:6px;white-space:nowrap;flex-shrink:0}
+  .site-header .brand img{width:28px;height:28px}
+  .language-switch summary{min-height:40px;font-size:12px;gap:4px;padding:6px}
+  .language-globe{width:16px;height:16px}
+  .language-caret{width:10px;height:10px}
+  .site-header .small-cta{min-height:40px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;padding:6px;white-space:nowrap;flex-shrink:0}
+}
+@media(max-width:360px){
+  .site-header .brand{font-size:13px;gap:5px}
+  .site-header .brand img{width:26px;height:26px}
+  .language-switch summary{font-size:11px}
+  .site-header .small-cta{font-size:10px}
 }

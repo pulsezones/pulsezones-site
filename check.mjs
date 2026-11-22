@@ -15,6 +15,12 @@ for(const lang of languages){
   if(html.includes('{{t'))errors.push(`${lang.code}: untranslated token`);
   const mobileMenu=html.match(/<details class="mobile-navigation">([\s\S]*?)<\/details>/)?.[1];
   if(!mobileMenu||!mobileMenu.includes(`<summary aria-label="${translation.t287}">`))errors.push(`${lang.code}: accessible mobile menu missing`);
+  const languageMenu=html.match(/<details class="language-switch">([\s\S]*?)<\/details>/)?.[1];
+  const languageCode=lang.code.split('-')[0].toUpperCase();
+  if(!languageMenu?.includes(`<span>${languageCode}</span>`)||!languageMenu.includes('language-globe'))errors.push(`${lang.code}: compact language label or globe missing`);
+  for(const other of languages){
+    if(!languageMenu?.includes(`>${other.name}</a>`))errors.push(`${lang.code}: full language name missing ${other.code}`);
+  }
   for(const anchor of ['features','sensors','zones','faq']){
     if(!mobileMenu?.includes(`href="#${anchor}"`))errors.push(`${lang.code}: mobile menu missing ${anchor}`);
   }

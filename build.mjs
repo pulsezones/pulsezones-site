@@ -36,9 +36,10 @@ for(const lang of languages){
   html=html.replaceAll('href="/styles.css"','href="/assets/styles.css"').replaceAll('src="/script.js"','src="/assets/script.js"').replaceAll('/assets/','../assets/');
   const links=languages.map(l=>`<a href="../${l.code}/${base?'':'index.html'}" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}" data-language="${l.code}"${l.code===lang.code?' aria-current="page"':''}>${esc(l.name)}</a>`).join('');
   const languageLabel=t.t301;
+  const languageCode=lang.code.split('-')[0].toUpperCase();
   const globe='<svg class="language-globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>';
   const caret='<svg class="language-caret" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>';
-  html=html.replace('<a class="small-cta"',`<details class="language-switch"><summary aria-label="${languageLabel}: ${esc(lang.name)}">${globe}<span>${esc(lang.name)}</span>${caret}</summary><div class="language-options" role="group" aria-label="${languageLabel}">${links}</div></details>\n      <a class="small-cta"`);
+  html=html.replace('<a class="small-cta"',`<details class="language-switch"><summary aria-label="${languageLabel}: ${esc(lang.name)}">${globe}<span>${languageCode}</span>${caret}</summary><div class="language-options" role="group" aria-label="${languageLabel}">${links}</div></details>\n      <a class="small-cta"`);
   html=html.replace(/(mailto:pulsezones@proton.me)\?[^"\s]+/g,(_,email)=>`${email}?subject=${encodeURIComponent(t.t302)}`);
   if(lang.code==='ru'){
     html=html.replace(/<a\b[^>]*href="https:\/\/(?:www\.)?threads\.com\/[^"\s]*"[^>]*>[\s\S]*?<\/a>/g,'').replaceAll(' · Threads: ','');
@@ -60,7 +61,7 @@ for(const lang of languages){
   await writeFile(join(out,lang.code,'index.html'),versionStyles(html));
   const privacyLinks=languages.map(l=>`<a href="../${l.code}/privacy.html" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}" data-language="${l.code}"${l.code===lang.code?' aria-current="page"':''}>${esc(l.name)}</a>`).join('');
   const privacyMetadata=base?`<link rel="canonical" href="${absolute(lang.code+'/privacy.html')}">\n${languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/privacy.html')}">`).join('\n')}\n<link rel="alternate" hreflang="x-default" href="${absolute('en/privacy.html')}">`:'';
-  const privacyFields={...Object.fromEntries(Object.entries(privacy).map(([k,v])=>[k,esc(v)])),language:lang.hreflang||lang.code,locale:lang.locale,languageName:esc(lang.name),languageLabel:esc(t.t301),globe,caret,languageLinks:privacyLinks,languageScript:languageScript(),metadata:privacyMetadata};
+  const privacyFields={...Object.fromEntries(Object.entries(privacy).map(([k,v])=>[k,esc(v)])),language:lang.hreflang||lang.code,locale:lang.locale,languageName:esc(lang.name),languageCode,languageLabel:esc(t.t301),globe,caret,languageLinks:privacyLinks,languageScript:languageScript(),metadata:privacyMetadata};
   await writeFile(join(out,lang.code,'privacy.html'),versionStyles((base?privacyTemplate.replaceAll('href="index.html"','href="./"'):privacyTemplate).replace(/\{\{(\w+)\}\}/g,(_,key)=>{if(privacyFields[key]===undefined)throw Error(`Missing privacy template field: ${key}`);return privacyFields[key];})));
 }
 
