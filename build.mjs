@@ -18,11 +18,14 @@ const absolute=path=>new URL(path,base).href;
 const languageScript=(auto=false)=>`<script src="${auto?'':'../'}assets/language-preference.js" data-language-selector data-supported-languages="${languages.map(l=>l.code).join(',')}"${auto?' data-auto-language="true"':''} defer></script>`;
 const stylesheet=await readFile(join(root,'assets/styles.css'));
 const stylesheetName=`styles.${createHash('sha256').update(stylesheet).digest('hex').slice(0,12)}.css`;
-const versionStyles=html=>html.replaceAll('assets/styles.css',`assets/${stylesheetName}`);
+const mainScript=await readFile(join(root,'assets/script.js'));
+const scriptName=`script.${createHash('sha256').update(mainScript).digest('hex').slice(0,12)}.js`;
+const versionStyles=html=>html.replaceAll('assets/styles.css',`assets/${stylesheetName}`).replaceAll('assets/script.js',`assets/${scriptName}`);
 await mkdir(out,{recursive:true});
 await cp(join(root,'assets'),join(out,'assets'),{recursive:true});
 await cp(join(root,'public'),out,{recursive:true});
 await writeFile(join(out,'assets',stylesheetName),stylesheet);
+await writeFile(join(out,'assets',scriptName),mainScript);
 const alternateTags=base?languages.map(l=>`<link rel="alternate" hreflang="${l.hreflang||l.code}" href="${absolute(l.code+'/')}">`).join('\n')+`\n<link rel="alternate" hreflang="x-default" href="${absolute('en/')}">`:'';
 
 for(const lang of languages){
