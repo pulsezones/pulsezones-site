@@ -21,8 +21,8 @@
   "t020": "Behalte deine Belastung im Blick.",
   "t021": "Verstehe dein Training.",
   "t022": "Von einem unabhängigen Entwickler für Läufer, Radfahrer und alle mit Pulsgurt. Wichtige Messwerte ohne störende Werbung.",
-  "t023": "Herzfrequenz in Echtzeit",
-  "t024": "Sieh Puls, aktuelle Zone, Verlauf und Zeit pro Zone. Ton und Vibration helfen dir, die Belastung ohne Blick aufs Display zu verfolgen.",
+  "t023": "Jede Sekunde. Der Überblick. Ein Bildschirm.",
+  "t024": "Sieh die letzten zwei Minuten deiner Herzfrequenz sekundengenau und daneben die vorherigen 30 Minuten in komprimierter Form. Verfolge aktuelle Veränderungen und behalte deine Belastung im Blick, ohne zwischen Diagrammen zu wechseln.",
   "t025": "GPS-Tracking für Laufen und Radfahren",
   "t026": "Zeichne Strecke, Tempo, Geschwindigkeit, Dauer und Distanz beim Laufen, Radfahren oder Wandern auf.",
   "t027": "Pulsaufzeichnung bei ausgeschaltetem Display",
@@ -300,5 +300,6 @@
   "t299": "Fünf Pulszonen",
   "t300": "PulseZones-Logo",
   "t301": "Sprache wählen",
-  "t302": "Feedback zu PulseZones"
+  "t302": "Feedback zu PulseZones",
+  "t303": "Öffne das Diagramm während des Trainings im Querformat, um es genauer anzusehen."
 }

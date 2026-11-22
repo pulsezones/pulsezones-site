@@ -21,8 +21,8 @@
   "t020": "Follow your effort.",
   "t021": "Understand every workout.",
   "t022": "Built by an independent developer for runners, cyclists and anyone who uses a heart rate strap. See the metrics you need, without ads getting in the way.",
-  "t023": "Real-time heart rate tracking",
-  "t024": "See your BPM, current zone, live heart rate chart and time in each zone. Audio and vibration alerts help you keep track of your effort without checking the screen.",
+  "t023": "Every second. The bigger picture. One screen.",
+  "t024": "See your last two minutes of heart rate second by second, alongside a compressed view of the preceding 30 minutes. Follow immediate changes while keeping your effort in context—without switching charts.",
   "t025": "GPS running and cycling tracker",
   "t026": "Record your GPS route, pace, speed, duration and distance while running, cycling or hiking.",
   "t027": "Track heart rate with your screen off",
@@ -300,5 +300,6 @@
   "t299": "Five heart rate zones",
   "t300": "PulseZones logo",
   "t301": "Choose language",
-  "t302": "PulseZones feedback"
+  "t302": "PulseZones feedback",
+  "t303": "During your workout, expand the chart into landscape view to explore it in more detail."
 }
