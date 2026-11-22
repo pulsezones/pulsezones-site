@@ -88,3 +88,29 @@ document.addEventListener('keydown', event => {
     menu.querySelector('summary').focus();
   });
 });
+
+const themeGallery = document.querySelector('.theme-gallery');
+if (themeGallery) {
+  const dots = [...document.querySelectorAll('[data-theme-index]')];
+  let selected = 0;
+  const update = () => {
+    const maximum = themeGallery.scrollWidth - themeGallery.clientWidth;
+    selected = maximum > 0 ? Math.round(themeGallery.scrollLeft / maximum * (dots.length - 1)) : 0;
+    dots.forEach((dot, index) => dot.setAttribute('aria-pressed', String(index === selected)));
+  };
+  const select = index => {
+    const maximum = themeGallery.scrollWidth - themeGallery.clientWidth;
+    themeGallery.scrollTo({left: Math.max(0, maximum) * index / (dots.length - 1),
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  };
+  dots.forEach((dot, index) => dot.addEventListener('click', () => select(index)));
+  themeGallery.addEventListener('scroll', update, {passive: true});
+  themeGallery.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    select(event.key === 'Home' ? 0 : event.key === 'End' ? dots.length - 1 :
+      Math.max(0, Math.min(dots.length - 1, selected + (event.key === 'ArrowRight' ? 1 : -1))));
+  });
+  window.addEventListener('resize', update);
+  update();
+}

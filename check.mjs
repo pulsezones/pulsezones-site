@@ -13,6 +13,9 @@ for(const lang of languages){
   const path=join(out,lang.code,'index.html');
   const html=await readFile(path,'utf8');
   if(html.includes('{{t'))errors.push(`${lang.code}: untranslated token`);
+  const themeCard=html.match(/<article class="theme-card"[\s\S]*?<\/article>/)?.[0];
+  if(!themeCard||!themeCard.includes('<span class="index">00</span>')||(themeCard.match(/class="theme-slide"/g)||[]).length!==4||(themeCard.match(/data-theme-index=/g)||[]).length!==4)errors.push(`${lang.code}: incomplete theme comparison card`);
+  if(html.indexOf('<article class="theme-card"')>html.indexOf('<article class="story-card card-chart"'))errors.push(`${lang.code}: theme card must precede card 01`);
   const mobileMenu=html.match(/<details class="mobile-navigation">([\s\S]*?)<\/details>/)?.[1];
   if(!mobileMenu||!mobileMenu.includes(`<summary aria-label="${translation.t287}">`))errors.push(`${lang.code}: accessible mobile menu missing`);
   const languageMenu=html.match(/<details class="language-switch">([\s\S]*?)<\/details>/)?.[1];

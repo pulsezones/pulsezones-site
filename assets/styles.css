@@ -134,6 +134,26 @@ html[lang="ru"] .hero h1 em{display:block}
 }
 
 .mobile-navigation{display:none;flex-shrink:0}
+.theme-card{grid-column:1/-1;min-width:0;padding:30px;border:1px solid var(--line);border-radius:27px;background:radial-gradient(ellipse at 55% 80%,#844fc62b,transparent 65%),var(--surface-2)}
+.theme-copy{max-width:760px;margin-bottom:28px}
+.theme-copy h3{font-size:clamp(26px,3.2vw,40px);line-height:1.15;letter-spacing:-1px;margin:17px 0 12px}
+.theme-copy p{font-size:16px;line-height:1.6;color:var(--muted);margin:0}
+.theme-gallery{display:flex;gap:20px;min-width:0}
+.theme-slide{flex:1 1 0;min-width:0;margin:0;text-align:center}
+.theme-slide img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 18px #0006)}
+.theme-slide figcaption{margin-top:18px;font-size:14px;line-height:1.5;color:var(--ink)}
+.theme-gallery:focus-visible{outline:2px solid var(--violet);outline-offset:6px;border-radius:8px}
+.theme-dots{display:none}
+@media(max-width:760px){
+  .theme-card{padding:26px 20px}
+  .theme-gallery{max-width:340px;margin-inline:auto;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#9d7bbd #ffffff08;padding:0 0 16px}
+  .theme-slide{flex:0 0 82%;max-width:280px;scroll-snap-align:start}
+  .theme-dots{display:flex;justify-content:center;gap:2px;margin-top:8px}
+  .theme-dots button{display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;background:none;border-radius:50%;cursor:pointer}
+  .theme-dots button::after{content:"";width:7px;height:7px;border-radius:50%;background:#ffffff40}
+  .theme-dots button[aria-pressed="true"]::after{background:var(--violet);width:10px;height:10px}
+  .theme-dots button:focus-visible{outline:2px solid var(--violet);outline-offset:0}
+}
 .mobile-navigation summary{width:40px;height:44px;display:flex;align-items:center;justify-content:center;list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:10px;color:var(--ink)}
 .mobile-navigation summary::-webkit-details-marker{display:none}
 .mobile-navigation summary svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
