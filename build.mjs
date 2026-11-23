@@ -10,6 +10,7 @@ const supplied=process.env.SITE_URL?.trim();
 let base='';
 if(supplied){const parsed=new URL(supplied);if(parsed.protocol!=='https:')throw Error('SITE_URL must use HTTPS');base=parsed.href.replace(/\/?$/,'/');}
 const template=await readFile(join(root,'source/template.html'),'utf8');
+const localeContent=JSON.parse(await readFile(join(root,'source/locale-content.json'),'utf8'));
 const scrollBootstrap=await readFile(join(root,'source/scroll-bootstrap.js'),'utf8');
 const privacyTemplate=await readFile(join(root,'source/privacy-template.html'),'utf8');
 const privacyTranslations=JSON.parse(await readFile(join(root,'source/privacy-locales.json'),'utf8'));
@@ -35,6 +36,7 @@ for(const lang of languages){
   const ru=JSON.parse(await readFile(join(root,'locales/ru.json'),'utf8'));
   for(const key of Object.keys(ru))if(typeof t[key]!=='string'||!t[key].trim())throw Error(`Missing ${lang.code}: ${key}`);
   let html=template.replace(/\{\{(t\d+)\}\}/g,(_,key)=>{if(!t[key])throw Error(`Missing ${key}`);return esc(t[key]);});
+  html=html.replace('{{localeFaq}}',(localeContent[lang.code]?.faq||[]).map(({question,answer})=>`<details><summary>${esc(question)}</summary><p>${esc(answer)}</p></details>`).join(''));
   html=html.replace('<html lang="ru">',`<html lang="${lang.hreflang||lang.code}" data-zone-label="${esc(t.t161.replace(/\s*1$/,''))}">`).replace('content="ru_RU"',`content="${lang.locale}"`);
   html=html.replaceAll('href="/styles.css"','href="/assets/styles.css"').replaceAll('src="/script.js"','src="/assets/script.js"').replaceAll('/assets/','../assets/');
   const links=languages.map(l=>`<a href="../${l.code}/${base?'':'index.html'}" lang="${l.hreflang||l.code}" hreflang="${l.hreflang||l.code}" data-language="${l.code}"${l.code===lang.code?' aria-current="page"':''}>${esc(l.name)}</a>`).join('');
