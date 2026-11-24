@@ -30,5 +30,17 @@
         "answer": "Sim, desde que ele transmita a frequência cardíaca por Bluetooth Low Energy usando o serviço padrão Heart Rate Service. Ative o modo Heart Rate Broadcasting, Broadcast HR ou modo de sensor de frequência cardíaca e procure o relógio no PulseZones. A transmissão apenas por ANT+ e o pareamento comum com o Android não substituem esse modo. A disponibilidade depende do modelo do relógio."
       }
     ]
+  },
+  "it": {
+    "faq": [
+      {
+        "question": "Posso usare una fascia cardio senza smartwatch?",
+        "answer": "Sì. Collega una fascia cardio Bluetooth compatibile direttamente a PulseZones sul telefono Android. Puoi seguire la frequenza cardiaca e le zone, ricevere avvisi e registrare l’allenamento. Non serve uno smartwatch: servono il sensore e il telefono da portare con te."
+      },
+      {
+        "question": "Posso collegare un orologio in modalità Heart Rate Broadcasting?",
+        "answer": "Sì, se l’orologio trasmette la frequenza cardiaca tramite Bluetooth Low Energy con il servizio standard Heart Rate Service. Attiva la trasmissione del battito, spesso chiamata Heart Rate Broadcasting, Broadcast HR o HR sensor mode, poi seleziona l’orologio in PulseZones. La trasmissione solo tramite ANT+ e il normale abbinamento ad Android non sostituiscono questa modalità. La disponibilità dipende dal modello di orologio."
+      }
+    ]
   }
 }
