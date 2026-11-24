@@ -6,5 +6,17 @@
         "answer": "Sí. Conecta un pulsómetro de pecho Bluetooth compatible directamente a PulseZones y utiliza el móvil para ver tus pulsaciones, recibir alertas de zona y registrar el entrenamiento. No necesitas un reloj deportivo: necesitas el sensor y llevar el móvil contigo."
       }
     ]
+  },
+  "ru": {
+    "faq": [
+      {
+        "question": "Можно ли тренироваться с нагрудным датчиком пульса без спортивных часов?",
+        "answer": "Да. Подключите совместимый нагрудный Bluetooth-пульсометр прямо к PulseZones на Android. Приложение покажет пульс и зоны, поможет контролировать нагрузку уведомлениями и сохранит тренировку. Спортивные часы не обязательны — для такого варианта нужны внешний датчик и телефон."
+      },
+      {
+        "question": "Можно ли подключить часы в режиме Heart Rate Broadcasting?",
+        "answer": "Да, если часы передают пульс по Bluetooth Low Energy через стандартный Heart Rate Service. Включите на часах трансляцию пульса (Heart Rate Broadcasting, Broadcast HR или HR sensor mode), затем выберите часы в списке устройств PulseZones. Передача только по ANT+ и обычное сопряжение часов с Android не заменяют этот режим. Наличие подходящей трансляции зависит от модели часов."
+      }
+    ]
   }
 }
