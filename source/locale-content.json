@@ -18,5 +18,17 @@
         "answer": "Да, если часы передают пульс по Bluetooth Low Energy через стандартный Heart Rate Service. Включите на часах трансляцию пульса (Heart Rate Broadcasting, Broadcast HR или HR sensor mode), затем выберите часы в списке устройств PulseZones. Передача только по ANT+ и обычное сопряжение часов с Android не заменяют этот режим. Наличие подходящей трансляции зависит от модели часов."
       }
     ]
+  },
+  "pt-br": {
+    "faq": [
+      {
+        "question": "Posso treinar com uma cinta cardíaca sem smartwatch?",
+        "answer": "Sim. Conecte uma cinta peitoral Bluetooth compatível diretamente ao PulseZones no Android. O celular mostra os batimentos, as zonas e os alertas, além de registrar o treino. Você não precisa de um relógio esportivo, mas precisa do sensor e de levar o celular com você."
+      },
+      {
+        "question": "Posso conectar um relógio com transmissão de frequência cardíaca?",
+        "answer": "Sim, desde que ele transmita a frequência cardíaca por Bluetooth Low Energy usando o serviço padrão Heart Rate Service. Ative o modo Heart Rate Broadcasting, Broadcast HR ou modo de sensor de frequência cardíaca e procure o relógio no PulseZones. A transmissão apenas por ANT+ e o pareamento comum com o Android não substituem esse modo. A disponibilidade depende do modelo do relógio."
+      }
+    ]
   }
 }
